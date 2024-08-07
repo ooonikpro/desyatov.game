@@ -3,7 +3,7 @@ import cn from "classnames";
 import { UiButtonProps } from "./types";
 import s from "./UiButton.module.scss";
 
-const UiButton = ({ theme = "primary", children, block, className, ...$attrs }: UiButtonProps) => {
+const UiButton = ({ theme = "primary", children, block, ...$attrs }: UiButtonProps) => {
   return (
     <button
       {...$attrs}
@@ -13,7 +13,7 @@ const UiButton = ({ theme = "primary", children, block, className, ...$attrs }: 
         {
           [s.block]: block,
         },
-        className,
+        $attrs.className,
       )}
     >
       {children}

@@ -1,4 +1,5 @@
+import React from "react";
+
 export type UiVideoBgProps = {
   src: string;
-  className?: string;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
