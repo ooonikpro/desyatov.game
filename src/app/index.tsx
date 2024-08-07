@@ -1,4 +1,7 @@
 import ReactDOM from "react-dom/client";
+import TelegramApi from "@shared/api/telegram";
+
+TelegramApi.initWebApp();
 
 import App from "./App";
 

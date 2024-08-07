@@ -1,4 +1,4 @@
-import IntroContinueButton from "@entities/intro-continue-button";
+import IntroContinueButton from "@features/intro-continue-button";
 import { UiScreen, UiVideoBg } from "@shared/ui";
 import s from "./IntroPage.module.scss";
 
