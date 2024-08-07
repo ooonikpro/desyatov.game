@@ -1,0 +1,17 @@
+.root {
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  height: 70px;
+  font-size: 28px;
+  font-weight: 500;
+  border-radius: 50px;
+
+  &.block {
+    width: 100%;
+  }
+
+  &.primary {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-color);
+  }
+}

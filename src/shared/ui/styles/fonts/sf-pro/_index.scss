@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Bold"),
+    local("SFProDisplay-Bold"),
+    url("assets/font/SFProDisplay-Bold.woff2") format("woff2"),
+    url("assets/font/SFProDisplay-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Medium"),
+    local("SFProDisplay-Medium"),
+    url("assets/font/SFProDisplay-Medium.woff2") format("woff2"),
+    url("assets/font/SFProDisplay-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Black"),
+    local("SFProDisplay-Black"),
+    url("assets/font/SFProDisplay-Black.woff2") format("woff2"),
+    url("assets/font/SFProDisplay-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Heavy"),
+    local("SFProDisplay-Heavy"),
+    url("assets/font/SFProDisplay-Heavy.woff2") format("woff2"),
+    url("assets/font/SFProDisplay-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Regular"),
+    local("SFProDisplay-Regular"),
+    url("assets/font/SFProDisplay-Regular.woff2") format("woff2"),
+    url("assets/font/SFProDisplay-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Light"),
+    local("SFProDisplay-Light"),
+    url("assets/font/SFProDisplay-Light.woff2") format("woff2"),
+    url("assets/font/SFProDisplay-Light.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display Thin"),
+    local("SFProDisplay-Thin"),
+    url("assets/font/SFProDisplay-Thin.woff2") format("woff2"),
+    url("assets/font/SFProDisplay-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}

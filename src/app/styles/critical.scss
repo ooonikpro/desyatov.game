@@ -1,0 +1,14 @@
+@import "@shared/ui/styles";
+
+@media (prefers-color-scheme: dark) {
+  @import "./themes/dark.theme.scss";
+}
+
+@media (prefers-color-scheme: light) {
+  @import "./themes/light.theme.scss";
+}
+
+body {
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
+}

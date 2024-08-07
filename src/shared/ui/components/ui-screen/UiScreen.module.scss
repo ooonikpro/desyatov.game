@@ -1,0 +1,15 @@
+.root {
+  inset: 0;
+  position: fixed;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  width: calc(100% + 17px);
+  padding-right: 17px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
