@@ -6,7 +6,10 @@ const IntroPage = () => {
   return (
     <UiScreen>
       <div className={s.root}>
-        <UiVideoBg src="assets/videos/intro.mp4" className={s.video} />
+        <UiVideoBg
+          src="https://api.telegram.org/file/bot7003848215:AAFBvbnDo68u4IsZoiUUlZlaWZt3lk_4534/documents/file_2.webm"
+          className={s.video}
+        />
 
         <div className={s.content}>
           <h2 className={s.title}>
