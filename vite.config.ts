@@ -19,7 +19,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@shared/ui/styles/_prepend.scss";`,
+        additionalData: `@import "@shared/styles/_prepend.scss";`,
       },
     },
   },

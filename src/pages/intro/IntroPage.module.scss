@@ -2,17 +2,27 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 1rem;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
 }
 
 .content {
-  background-color: rgba(#000, 0.2);
   padding: 3.1rem 2rem;
   margin-top: auto;
   border-radius: 36px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+
+  @include forDarkTheme {
+    background-color: rgba($black-bg, 0.5);
+  }
+
+  @include forLightTheme {
+    background-color: rgba($white-bg, 0.5);
+  }
 }
 
 .title {
@@ -23,7 +33,7 @@
 
 .title,
 .text {
-  color: $white;
+  color: var(--body-text-color);
 }
 
 .text {
@@ -33,7 +43,7 @@
 }
 
 .primary {
-  color: var(--body-text-primary-color);
+  color: var(--primary-color);
 }
 
 .video::after {
@@ -41,5 +51,12 @@
   display: block;
   position: fixed;
   inset: 0;
-  background: linear-gradient(0deg, #000 0%, #000 0%, rgba(#000, 0.5) 100%);
+
+  @include forDarkTheme {
+    background: linear-gradient(0deg, $black-bg 0%, $black-bg 0%, rgba($black-bg, 0.5) 100%);
+  }
+
+  @include forLightTheme {
+    background: linear-gradient(0deg, $white-bg 0%, $white-bg 0%, rgba($white-bg, 0.5) 100%);
+  }
 }

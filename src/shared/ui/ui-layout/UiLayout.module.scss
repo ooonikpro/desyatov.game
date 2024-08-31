@@ -1,0 +1,28 @@
+.root {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100vh;
+}
+
+.content,
+.navigation {
+  overflow: hidden;
+}
+
+.content {
+  opacity: 0;
+  transition: opacity 500ms ease;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.navigation {
+  transform: translateY(100px);
+  transition: transform 500ms ease;
+
+  &.show {
+    transform: translateY(0);
+  }
+}

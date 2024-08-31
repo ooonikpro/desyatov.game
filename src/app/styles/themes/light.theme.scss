@@ -1,8 +1,8 @@
 :root {
-  --body-bg-color: #{$white};
+  --body-bg-color: #{$white-bg};
   --body-text-color: #{$black};
-  --body-text-primary-color: #{$citrus};
 
-  --button-primary-bg: #{$citrus};
-  --button-primary-color: #{$black};
+  --primary-color: #{$citrus};
+
+  --secondary-color: #{$white};
 }

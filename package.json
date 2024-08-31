@@ -24,9 +24,10 @@
   "dependencies": {
     "@types/telegram-web-app": "^7.8.0",
     "classnames": "^2.5.1",
+    "immer": "^10.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "zustand": "^4.5.4"
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@feature-sliced/eslint-config": "^0.1.1",

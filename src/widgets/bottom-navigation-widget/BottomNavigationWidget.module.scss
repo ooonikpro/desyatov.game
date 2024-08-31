@@ -1,0 +1,26 @@
+.root {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--body-text-color);
+  border-radius: 17px;
+  transition: background 300ms ease;
+
+  &.active {
+    background: var(--primary-color);
+  }
+}

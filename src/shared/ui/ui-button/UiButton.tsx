@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import cn from "classnames";
 import { UiButtonProps } from "./types";
 import s from "./UiButton.module.scss";

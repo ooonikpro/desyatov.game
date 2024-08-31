@@ -1,7 +1,9 @@
 import initWebApp from "./initWebApp";
 import vibrate from "./vibrate";
 
-export default {
+const TelegramApi = {
   initWebApp,
   vibrate,
 };
+
+export default TelegramApi;
