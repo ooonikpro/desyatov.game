@@ -7,6 +7,11 @@
   position: fixed;
   inset: 0;
   z-index: 99999;
+
+  &.animated {
+    transition: transform 500ms ease;
+    transform: translateY(-100vh);
+  }
 }
 
 .content {
@@ -15,14 +20,7 @@
   border-radius: 36px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
-  @include forDarkTheme {
-    background-color: rgba($black-bg, 0.5);
-  }
-
-  @include forLightTheme {
-    background-color: rgba($white-bg, 0.5);
-  }
+  background-color: rgba($black-bg, 0.5);
 }
 
 .title {
@@ -33,7 +31,7 @@
 
 .title,
 .text {
-  color: var(--body-text-color);
+  color: $white;
 }
 
 .text {
@@ -51,12 +49,5 @@
   display: block;
   position: fixed;
   inset: 0;
-
-  @include forDarkTheme {
-    background: linear-gradient(0deg, $black-bg 0%, $black-bg 0%, rgba($black-bg, 0.5) 100%);
-  }
-
-  @include forLightTheme {
-    background: linear-gradient(0deg, $white-bg 0%, $white-bg 0%, rgba($white-bg, 0.5) 100%);
-  }
+  background: linear-gradient(0deg, $black-bg 0%, $black-bg 0%, rgba($black-bg, 0.5) 100%);
 }
