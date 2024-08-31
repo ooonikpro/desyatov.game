@@ -2,12 +2,14 @@ import TelegramApi from "@shared/api/telegram";
 import useRouteNavigation from "@shared/hooks/useRouteNavigation";
 import { UiButton } from "@shared/ui";
 
-const IntroContinueButton = ({ beforeClick }: { beforeClick: () => Promise<void> }) => {
+// eslint-disable-next-line no-unused-vars
+const IntroContinueButton = ({ beforeClick }: { beforeClick: () => void }) => {
   const { navigateToHome } = useRouteNavigation();
 
   const handleClick = async () => {
     TelegramApi.vibrate();
-    await beforeClick();
+
+    beforeClick();
     navigateToHome();
   };
 

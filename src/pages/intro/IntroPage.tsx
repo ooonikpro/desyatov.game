@@ -1,23 +1,16 @@
 import cn from "classnames";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import IntroContinueButton from "@features/intro-continue-button";
 import { UiVideoBg } from "@shared/ui";
 import s from "./IntroPage.module.scss";
 
-const IntroPage = () => {
-  const promise = useRef(() => {});
-
+const IntroPage = ({ onTransitionEnd }: { onTransitionEnd: () => void }) => {
   const [isAnimated, setIsAnimated] = useState(false);
 
-  const runAnimation: () => Promise<void> = () => {
-    return new Promise<void>((res) => {
-      setIsAnimated(true);
-      promise.current = res;
-    });
-  };
+  const runAnimation = () => setIsAnimated(true);
 
   return (
-    <div className={cn(s.root, { [s.animated]: isAnimated })} onTransitionEnd={() => promise.current()}>
+    <div className={cn(s.root, { [s.animated]: isAnimated })} onTransitionEnd={onTransitionEnd}>
       <UiVideoBg src="assets/videos/intro.mp4" className={s.video} />
 
       <div className={s.content}>
