@@ -1,7 +1,7 @@
 .root {
   display: grid;
   grid-template-rows: 1fr auto;
-  height: 100vh;
+  height: var(--tg-viewport-height, 100vh);
 }
 
 .content,
