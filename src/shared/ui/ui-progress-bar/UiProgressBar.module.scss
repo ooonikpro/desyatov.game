@@ -1,0 +1,26 @@
+.root {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 22px;
+  background-color: var(--body-bg-color);
+
+  &.xs {
+    height: 6px;
+  }
+
+  &.s {
+    height: 9px;
+  }
+
+  &.m {
+    height: 12px;
+  }
+}
+
+.inner {
+  width: inherit;
+  height: inherit;
+  background-color: var(--primary-color);
+  transition: transform 300ms ease;
+  border-radius: inherit;
+}
