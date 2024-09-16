@@ -29,6 +29,7 @@
     }
   },
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
     "no-restricted-exports": "off",
     "no-unused-vars": [
       "error",

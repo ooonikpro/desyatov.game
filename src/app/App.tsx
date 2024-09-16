@@ -2,6 +2,7 @@ import React from "react";
 import CalendarPage from "@pages/calendar";
 import HomePage from "@pages/home";
 import IntroPage from "@pages/intro";
+import InterviewPage from "@pages/intro/interview";
 import ProfilePage from "@pages/profile";
 import StatisticsPage from "@pages/statistics";
 import BottomNavigationWidget from "@widgets/bottom-navigation-widget";
@@ -14,7 +15,9 @@ import AppRouteName from "./AppRouteName";
 const App = () => {
   return (
     <React.StrictMode>
-      <ShowIntroOrMain intro={(onTransitionEnd) => <IntroPage onTransitionEnd={onTransitionEnd} />}>
+      <ShowIntroOrMain
+        intro={(onTransitionEnd) => <IntroPage interviewPage={<InterviewPage onTransitionEnd={onTransitionEnd} />} />}
+      >
         <UiLayout bottomNavigation={<BottomNavigationWidget />}>
           <AppRouteName name={RoutesNamesEnum.home} component={<HomePage />} />
           <AppRouteName name={RoutesNamesEnum.calendar} component={<CalendarPage />} />

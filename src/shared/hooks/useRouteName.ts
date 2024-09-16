@@ -1,7 +1,5 @@
 import routerStore from "@shared/store/router-store";
 
-const useRouteName = () => {
-  return routerStore((state) => state.state.routeName);
-};
+const useRouteName = () => routerStore.use("routeName");
 
 export default useRouteName;

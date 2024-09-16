@@ -1,11 +1,10 @@
-import { create } from "zustand";
-
 import RoutesNamesEnum from "@shared/constants/routesNamesEnum";
+import createStore from "@shared/lib/createModel";
 import { RouteStoreType } from "./types";
 
-const routerStore = create<RouteStoreType>((set) => {
+const routerStore = createStore<RouteStoreType>((set) => {
   const setRouteName = (routeName: RoutesNamesEnum) => {
-    set({ state: { routeName } });
+    set((state) => (state.routeName = routeName));
   };
 
   return {

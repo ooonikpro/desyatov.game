@@ -1,16 +1,11 @@
-import TelegramApi from "@shared/api/telegram";
-import useRouteNavigation from "@shared/hooks/useRouteNavigation";
-import { UiButton } from "@shared/ui";
+import interviewModel from "@entities/interview/model";
+import UiButton from "@shared/ui/ui-button";
 
 // eslint-disable-next-line no-unused-vars
 const IntroContinueButton = ({ beforeClick }: { beforeClick: () => void }) => {
-  const { navigateToHome } = useRouteNavigation();
-
   const handleClick = async () => {
-    TelegramApi.vibrate();
-
     beforeClick();
-    navigateToHome();
+    interviewModel.show();
   };
 
   return (

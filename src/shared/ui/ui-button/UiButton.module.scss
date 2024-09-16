@@ -14,4 +14,17 @@
     background-color: var(--primary-color);
     color: var(--body-text-color);
   }
+
+  &.link {
+    background-color: transparent;
+    text-decoration: underline;
+
+    @include forDarkTheme {
+      color: rgba($white, .5);
+    }
+
+    @include forLightTheme {
+      color: rgba($black, .5);
+    }
+  }
 }

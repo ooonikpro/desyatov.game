@@ -6,11 +6,15 @@
   padding: 1rem;
   position: fixed;
   inset: 0;
-  z-index: 99999;
+  z-index: 90000;
 
   &.animated {
-    transition: transform 500ms ease;
-    transform: translateY(-100vh);
+    transition: opacity 1s ease;
+    opacity: 0;
+  }
+
+  &.hide {
+    display: none;
   }
 }
 

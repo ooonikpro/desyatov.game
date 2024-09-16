@@ -18,10 +18,9 @@ const ShowIntroOrMain = ({
   const onTransitionEnd = () => setIsShowIntro(false);
 
   return (
-    <>
-      <UiConditionalRender condition={isShowIntro}>{intro(onTransitionEnd)}</UiConditionalRender>
-      <UiConditionalRender condition={!isIntroRouteName}>{children}</UiConditionalRender>
-    </>
+    <UiConditionalRender condition={isIntroRouteName || isShowIntro} other={children}>
+      {intro(onTransitionEnd)}
+    </UiConditionalRender>
   );
 };
 
