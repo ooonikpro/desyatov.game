@@ -1,5 +1,6 @@
 import cn from "classnames";
 import { useEffect, useState } from "react";
+import InterviewStepAgePage from "@pages/intro/interview/step-age";
 import InterviewPrimaryButton from "@features/interview-primary-button";
 import InterviewSecondaryButton from "@features/interview-secondary-button";
 import interviewModel from "@entities/interview/model";
@@ -7,7 +8,7 @@ import InterviewStepProvider from "@entities/interview/ui/interview-step-provide
 import s from "./InterviewPage.module.scss";
 import InterviewStepZeroPage from "./step-zero";
 
-interviewModel.setPageComponents([InterviewStepZeroPage]);
+interviewModel.setPageComponents([InterviewStepZeroPage, InterviewStepAgePage]);
 
 const InterviewPage = ({ onTransitionEnd }: { onTransitionEnd: () => void }) => {
   const [isShow, setIsShow] = useState(false);

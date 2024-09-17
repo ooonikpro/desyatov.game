@@ -11,7 +11,7 @@ const InterviewSecondaryButton = ({ onFirstStepClick }: { onFirstStepClick: () =
   const router = useRouteNavigation();
 
   if (step === 0) text = "Пропустить";
-  if (step > 0) text = "Назад";
+  if (step > 1) text = "Назад";
 
   const handleClick = () => {
     if (isFirstStep) {

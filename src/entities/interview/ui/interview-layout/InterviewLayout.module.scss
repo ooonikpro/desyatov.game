@@ -3,9 +3,13 @@
   height: 100%;
   display: grid;
   grid-template-rows: 70px 1fr 120px;
-  background-color: var(--body-bg-color);
+  background-color: $white;
   color: var(--body-text-color);
   padding: 32px 0 50px;
+}
+
+.progressWrapper {
+  padding: 0 16px;
 }
 
 .body {
@@ -38,6 +42,7 @@
 .actions {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 5px;
   padding: 0 16px;
 }
