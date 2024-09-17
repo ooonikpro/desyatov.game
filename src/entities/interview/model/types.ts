@@ -1,12 +1,8 @@
 import React from "react";
 import { ZStore } from "@shared/types";
 
-export type InterviewPage = ({
-  // eslint-disable-next-line no-unused-vars
-  secondaryAction,
-  // eslint-disable-next-line no-unused-vars
-  primaryAction,
-}: {
+export type InterviewPage = ({}: {
+  progress: React.ReactNode;
   secondaryAction: React.ReactNode;
   primaryAction: React.ReactNode;
 }) => React.JSX.Element;
@@ -16,6 +12,7 @@ export type InterviewModelType = ZStore<
     isShow: boolean;
     step: number;
     pageComponents: Array<InterviewPage>;
+    answers: Record<string, any>;
   },
   {
     show: () => void;
@@ -24,5 +21,6 @@ export type InterviewModelType = ZStore<
     prevStep: () => void;
     // eslint-disable-next-line no-unused-vars
     setPageComponents: (components: Array<InterviewPage>) => void;
+    setAnswer: (key: string, value: any) => void;
   }
 >;

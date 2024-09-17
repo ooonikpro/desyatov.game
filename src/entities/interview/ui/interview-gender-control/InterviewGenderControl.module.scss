@@ -1,0 +1,18 @@
+.root {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.option {
+  font-size: 100px;
+  font-weight: 900;
+  text-decoration: underline;
+  text-align: center;
+  color: var(--body-text-color);
+  transition: color 250ms ease;
+
+  &.active {
+    color: var(--primary-color);
+  }
+}

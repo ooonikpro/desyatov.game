@@ -13,6 +13,7 @@ const interviewModel = createStore<InterviewModelType>((set, get) => {
       isShow: false,
       step: 0,
       pageComponents: [],
+      answers: {},
     },
 
     methods: {
@@ -34,6 +35,9 @@ const interviewModel = createStore<InterviewModelType>((set, get) => {
       },
       setPageComponents: (components) => {
         set((state) => (state.pageComponents = components));
+      },
+      setAnswer: (key: string, value: any) => {
+        set((state) => (state.answers[key] = value));
       },
     },
   };

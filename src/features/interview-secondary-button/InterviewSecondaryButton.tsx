@@ -20,6 +20,8 @@ const InterviewSecondaryButton = ({ onFirstStepClick }: { onFirstStepClick: () =
     } else interviewModel.prevStep();
   };
 
+  if (step === 1) return null;
+
   return (
     <UiButton theme="link" onClick={handleClick}>
       {text}

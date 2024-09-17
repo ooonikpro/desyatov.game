@@ -4,9 +4,11 @@ import s from "./InterviewProgress.module.scss";
 
 const InterviewProgress = () => {
   const step = interviewModel.use("step");
-  const totalSteps = interviewModel.use("pageComponents").length;
+  const totalSteps = interviewModel.use("pageComponents").length - 1;
 
   const value = (step / totalSteps) * 100;
+
+  if (step === 0) return null;
 
   return (
     <div className={s.root}>
