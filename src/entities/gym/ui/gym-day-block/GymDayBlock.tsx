@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import GymExpandedBlock from "@entities/gym/ui/gym-expanded-block";
+import GymPlaylist from "@entities/gym/ui/gym-playlist";
 
 import s from "./GymDayBlock.module.scss";
 
@@ -41,7 +42,9 @@ const GymDayBlock = ({
       }
       actionNode={actionButton}
     >
-      Video
+      <GymPlaylist name="Разминка" />
+      <GymPlaylist name="Суперсет (20 повторений)" />
+      <GymPlaylist name="Суперсет (15 повторений)" />
     </GymExpandedBlock>
   );
 };

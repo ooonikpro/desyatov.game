@@ -16,6 +16,7 @@ const GymExpandedBlock = (
   const rootState = useRef<{ width: number; height: number; top: number; left: number; borderRadius: string } | null>();
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isShowPlaylist, setIsShowPlaylist] = useState(false);
 
   const open = () => {
     if (!isExpanded && rootRef.current && contentRef.current) {
@@ -49,11 +50,14 @@ const GymExpandedBlock = (
           contentRef.current.style.left = "0";
           contentRef.current.style.borderRadius = "0";
         }
+
+        setIsShowPlaylist(true);
       });
     }
   };
   const close = () => {
     if (isExpanded && rootRef.current && contentRef.current && rootState.current) {
+      setIsShowPlaylist(false);
       contentRef.current.style.width = rootState.current.width + "px";
       contentRef.current.style.height = rootState.current.height + "px";
       contentRef.current.style.top = rootState.current.top + "px";
@@ -81,7 +85,7 @@ const GymExpandedBlock = (
         <div className={s.headerWrap}>
           <div className={s.titleWrap}>{titleNode}</div>
           <div className={s.iconWrap}>
-            <UiConditionalRender condition={isExpanded} other={iconNode}>
+            <UiConditionalRender condition={isShowPlaylist} other={iconNode}>
               <button className={s.closeBtn} onClick={close}>
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -94,7 +98,8 @@ const GymExpandedBlock = (
           </div>
         </div>
         <div className={s.textWrap}>{textNode}</div>
-        <div className={s.playlist}>{children}</div>
+
+        <UiConditionalRender condition={isShowPlaylist}>{children}</UiConditionalRender>
 
         <UiConditionalRender condition={!isExpanded}>
           <div className={s.actionWrap}>{actionNode(open)}</div>

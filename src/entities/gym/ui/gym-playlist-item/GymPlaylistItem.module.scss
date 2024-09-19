@@ -1,0 +1,70 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &.completed {
+    opacity: .5;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coverWrap {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--body-bg-color);
+}
+
+.completedIcon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  color: var(--primary-color);
+
+  @include forLightTheme {
+    background-color: rgba($black, .2);
+  }
+
+  @include forDarkTheme {
+    background-color: rgba($white, .2);
+  }
+}
+
+.cover {
+  width: 70px;
+  height: 70px;
+  grid-area: cover;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 400;
+  grid-area: title;
+  color: var(--body-text-color);
+}
+
+.duration {
+  font-size: 14px;
+  font-weight: 100;
+  grid-area: duration;
+
+  @include forLightTheme {
+    color: rgba($black, .9);
+  }
+
+  @include forDarkTheme {
+    color: rgba($white, .9);
+  }
+}
