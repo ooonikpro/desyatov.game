@@ -13,7 +13,7 @@ const GymDailyChallenge = ({
 }) => {
   return (
     <UiBlock color="primary" className={s.root}>
-      <span className={s.label}>Вызов дня</span>
+      <span className={s.label}>вызов дня</span>
       <h3 className={s.title}>{title}</h3>
       <div className={s.icon}>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

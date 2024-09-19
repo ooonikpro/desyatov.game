@@ -2,11 +2,10 @@
   display: grid;
   grid-template:
     "label icon"
-    "title icon"
+    "title title"
     "duration action"
   ;
   color: var(--body-text-color);
-  height: 130px;
 }
 
 .label {
@@ -28,6 +27,7 @@
   grid-area: title;
   font-size: 20px;
   font-weight: 900;
+  margin-bottom: 12px;
 }
 
 .duration {
