@@ -10,7 +10,9 @@ const UiLayout = ({ children, bottomNavigation }: { children: React.ReactNode; b
 
   return (
     <div className={s.root}>
-      <div className={cn(s.content, { [s.show]: isMounted })}>{children}</div>
+      <div className={cn(s.container, { [s.show]: isMounted })}>
+        <div className={s.content}>{children}</div>
+      </div>
       <div className={cn(s.navigation, { [s.show]: isMounted })}>{bottomNavigation}</div>
     </div>
   );

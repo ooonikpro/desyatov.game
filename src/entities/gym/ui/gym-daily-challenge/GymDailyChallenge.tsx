@@ -1,5 +1,5 @@
-import React from "react";
-import UiBlock from "@shared/ui/ui-block";
+import React, { useRef } from "react";
+import GymExpandedBlock from "@entities/gym/ui/gym-expanded-block";
 import s from "./GymDailyChallenge.module.scss";
 
 const GymDailyChallenge = ({
@@ -8,14 +8,23 @@ const GymDailyChallenge = ({
   duration,
 }: {
   title: string;
-  actionButton: React.ReactNode;
+  // eslint-disable-next-line no-unused-vars
+  actionButton: (cb: () => void) => React.ReactNode;
   duration: string;
 }) => {
+  const blockRef = useRef<{ open: () => void; close: () => void } | null>(null);
+
   return (
-    <UiBlock color="primary" className={s.root}>
-      <span className={s.label}>вызов дня</span>
-      <h3 className={s.title}>{title}</h3>
-      <div className={s.icon}>
+    <GymExpandedBlock
+      ref={blockRef}
+      color="primary"
+      titleNode={
+        <>
+          <span className={s.label}>вызов дня</span>
+          <h3 className={s.title}>{title}</h3>
+        </>
+      }
+      iconNode={
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M15.9996 21.3332C8.31964 21.3332 6.95964 13.6799 6.71964 7.6079C6.65164 5.91989 6.6183 5.07456 7.25297 4.29456C7.8863 3.51323 8.64497 3.38523 10.1636 3.12923C12.0927 2.81322 14.0448 2.65847 15.9996 2.66656C18.3783 2.66656 20.337 2.87589 21.8356 3.12923C23.3543 3.38523 24.113 3.51323 24.7476 4.29456C25.3823 5.07589 25.3476 5.91989 25.281 7.6079C25.041 13.6799 23.681 21.3332 16.001 21.3332H15.9996Z"
@@ -37,10 +46,16 @@ const GymDailyChallenge = ({
           />
           <path d="M24 29.3333H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
-      </div>
-      <span className={s.duration}>{duration}</span>
-      <div className={s.action}>{actionButton}</div>
-    </UiBlock>
+      }
+      actionNode={(onClick) => (
+        <>
+          <span className={s.duration}>{duration}</span>
+          {actionButton(onClick)}
+        </>
+      )}
+    >
+      Playlist
+    </GymExpandedBlock>
   );
 };
 

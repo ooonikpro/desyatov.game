@@ -9,42 +9,42 @@ const HomePage = () => {
     <div className={s.root}>
       <GymDailyChallenge
         title="Планка"
-        actionButton={
-          <UiButton theme="black" size="m" block>
+        actionButton={(cb) => (
+          <UiButton theme="black" size="m" block onClick={cb}>
             Принять
           </UiButton>
-        }
+        )}
         duration="1мин"
       />
 
       <GymDayBlock
         title="Тренировочный день 1"
         description="Комплекс упражнений на грудь"
-        actionButton={
-          <UiButton theme="primary" size="m" block>
+        actionButton={(cb) => (
+          <UiButton theme="primary" size="m" block onClick={cb}>
             Открыть
           </UiButton>
-        }
+        )}
       />
 
       <GymDayBlock
         title="Тренировочный день 2"
         description="Комплекс упражнений на ноги"
-        actionButton={
-          <UiButton theme="primary" size="m" block>
+        actionButton={(cb) => (
+          <UiButton theme="primary" size="m" block onClick={cb}>
             Открыть
           </UiButton>
-        }
+        )}
       />
 
       <GymDayBlock
         title="Тренировочный день 3"
         description="Комплекс упражнений на спину"
-        actionButton={
-          <UiButton theme="primary" size="m" block>
+        actionButton={(cb) => (
+          <UiButton theme="primary" size="m" block onClick={cb}>
             Открыть
           </UiButton>
-        }
+        )}
       />
     </div>
   );

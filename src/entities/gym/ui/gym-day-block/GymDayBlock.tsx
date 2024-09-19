@@ -1,5 +1,5 @@
-import React from "react";
-import UiBlock from "@shared/ui/ui-block";
+import React, { useRef } from "react";
+import GymExpandedBlock from "@entities/gym/ui/gym-expanded-block";
 
 import s from "./GymDayBlock.module.scss";
 
@@ -10,12 +10,21 @@ const GymDayBlock = ({
 }: {
   title: string;
   description: string;
-  actionButton: React.ReactNode;
+  // eslint-disable-next-line no-unused-vars
+  actionButton: (cb: () => void) => React.ReactNode;
 }) => {
+  const blockRef = useRef<{ open: () => void; close: () => void } | null>(null);
+
   return (
-    <UiBlock className={s.root}>
-      <h3 className={s.title}>{title}</h3>
-      <div className={s.icon}>
+    <GymExpandedBlock
+      ref={blockRef}
+      titleNode={
+        <>
+          <h3 className={s.title}>{title}</h3>
+          <p className={s.description}>{description}</p>
+        </>
+      }
+      iconNode={
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_246_2330)">
             <path
@@ -29,10 +38,11 @@ const GymDayBlock = ({
             </clipPath>
           </defs>
         </svg>
-      </div>
-      <p className={s.description}>{description}</p>
-      <div className={s.action}>{actionButton}</div>
-    </UiBlock>
+      }
+      actionNode={actionButton}
+    >
+      Video
+    </GymExpandedBlock>
   );
 };
 
