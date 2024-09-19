@@ -1,4 +1,4 @@
-import generateNumberList from "@shared/lib/generateNumberList.ts";
+import generateNumberList from "@shared/lib/generateNumberList";
 
 const minHeight = 100; // см
 const maxHeight = 250;

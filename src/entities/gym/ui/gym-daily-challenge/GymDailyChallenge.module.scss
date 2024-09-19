@@ -1,0 +1,45 @@
+.root {
+  display: grid;
+  grid-template:
+    "label icon"
+    "title icon"
+    "duration action"
+  ;
+  color: var(--body-text-color);
+  height: 130px;
+}
+
+.label {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  grid-area: label;
+  margin-bottom: 8px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  grid-area: icon;
+}
+
+.title {
+  grid-area: title;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.duration {
+  font-size: 20px;
+  font-weight: 400;
+  grid-area: duration;
+  margin-top: auto;
+}
+
+.action {
+  width: 156px;
+  height: 36px;
+  grid-area: action;
+  margin: auto 0 0 auto;
+}

@@ -2,7 +2,7 @@ import interviewModel from "@entities/interview/model";
 import useRouteNavigation from "@shared/hooks/useRouteNavigation";
 import UiButton from "@shared/ui/ui-button";
 
-const InterviewSecondaryButton = ({ onFirstStepClick }: { onFirstStepClick: () => void }) => {
+const InterviewBackButton = ({ onFirstStepClick }: { onFirstStepClick: () => void }) => {
   let text = "Продолжить";
 
   const step = interviewModel.use("step");
@@ -29,4 +29,4 @@ const InterviewSecondaryButton = ({ onFirstStepClick }: { onFirstStepClick: () =
   );
 };
 
-export default InterviewSecondaryButton;
+export default InterviewBackButton;

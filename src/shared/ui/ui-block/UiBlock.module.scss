@@ -1,0 +1,14 @@
+.root {
+  width: 100%;
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 0 1px rgba(0,0,0, .1);
+
+  &.secondary {
+    background-color: var(--secondary-color);
+  }
+
+  &.primary {
+    background-color: var(--primary-color);
+  }
+}

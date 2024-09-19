@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum.ts";
-import { defaultHeightForMan, defaultHeightForWoman, heightList } from "@entities/interview/constants/height.ts";
+import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum";
+import { defaultHeightForMan, defaultHeightForWoman, heightList } from "@entities/interview/constants/height";
 import interviewModel from "@entities/interview/model";
-import GenderEnum from "@shared/constants/genderEnum.ts";
+import GenderEnum from "@shared/constants/genderEnum";
 import UiMobileSelect from "@shared/ui/ui-mobile-select";
 
 const InterviewHeightControl = ({ id = AnswerKeyEnum.height, genderId = AnswerKeyEnum.gender }) => {

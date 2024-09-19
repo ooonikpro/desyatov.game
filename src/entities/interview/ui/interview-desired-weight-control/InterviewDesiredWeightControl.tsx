@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum.ts";
-import { weightList } from "@entities/interview/constants/weight.ts";
+import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum";
+import { weightList } from "@entities/interview/constants/weight";
 import interviewModel from "@entities/interview/model";
 import UiMobileSelect from "@shared/ui/ui-mobile-select";
 

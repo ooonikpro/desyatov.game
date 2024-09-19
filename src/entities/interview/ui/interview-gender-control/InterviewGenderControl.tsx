@@ -1,11 +1,11 @@
 import cn from "classnames";
 import { useEffect } from "react";
-import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum.ts";
+import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum";
 import { genderList } from "@entities/interview/constants/gender";
 import interviewModel from "@entities/interview/model";
 
 import TelegramApi from "@shared/api/telegram";
-import GenderEnum from "@shared/constants/genderEnum.ts";
+import GenderEnum from "@shared/constants/genderEnum";
 import s from "./InterviewGenderControl.module.scss";
 
 const InterviewGenderControl = ({

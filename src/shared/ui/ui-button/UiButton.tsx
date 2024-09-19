@@ -4,7 +4,7 @@ import TelegramApi from "@shared/api/telegram";
 import { UiButtonProps } from "./types";
 import s from "./UiButton.module.scss";
 
-const UiButton = ({ theme = "primary", children, block, ...$attrs }: UiButtonProps) => {
+const UiButton = ({ theme = "primary", size = "l", children, block, ...$attrs }: UiButtonProps) => {
   const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -18,6 +18,7 @@ const UiButton = ({ theme = "primary", children, block, ...$attrs }: UiButtonPro
       className={cn(
         s.root,
         s[theme],
+        s[size],
         {
           [s.block]: block,
         },

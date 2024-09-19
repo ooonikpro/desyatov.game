@@ -1,14 +1,16 @@
 import React from "react";
 import CalendarPage from "@pages/calendar";
 import HomePage from "@pages/home";
+import InterviewPage from "@pages/interview";
 import IntroPage from "@pages/intro";
-import InterviewPage from "@pages/intro/interview";
+
 import ProfilePage from "@pages/profile";
 import StatisticsPage from "@pages/statistics";
 import BottomNavigationWidget from "@widgets/bottom-navigation-widget";
-import ShowIntroOrMain from "@features/show-intro-or-main";
+import InterviewIsShowProvider from "@entities/interview/ui/interview-is-show-provider";
 import RoutesNamesEnum from "@shared/constants/routesNamesEnum";
 import UiLayout from "@shared/ui/ui-layout";
+import ShowIntroOrMain from "../features/intro/show-intro-or-main";
 
 import AppRouteName from "./AppRouteName";
 
@@ -16,7 +18,15 @@ const App = () => {
   return (
     <React.StrictMode>
       <ShowIntroOrMain
-        intro={(onTransitionEnd) => <IntroPage interviewPage={<InterviewPage onTransitionEnd={onTransitionEnd} />} />}
+        intro={(onTransitionEnd) => (
+          <IntroPage
+            interviewPage={
+              <InterviewIsShowProvider>
+                <InterviewPage onTransitionEnd={onTransitionEnd} />
+              </InterviewIsShowProvider>
+            }
+          />
+        )}
       >
         <UiLayout bottomNavigation={<BottomNavigationWidget />}>
           <AppRouteName name={RoutesNamesEnum.home} component={<HomePage />} />

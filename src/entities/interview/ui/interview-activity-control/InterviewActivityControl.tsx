@@ -1,6 +1,6 @@
 import cn from "classnames";
 import { useEffect } from "react";
-import { ActivityEnum, activityList, defaultActivity } from "@entities/interview/constants/activity.ts";
+import { ActivityEnum, activityList, defaultActivity } from "@entities/interview/constants/activity";
 import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum";
 
 import interviewModel from "@entities/interview/model";

@@ -1,7 +1,6 @@
 import cn from "classnames";
 import React, { useState } from "react";
-import IntroContinueButton from "@features/intro-continue-button";
-import InterviewIsShowProvider from "@entities/interview/ui/interview-is-show-provider";
+import IntroContinueButton from "@features/intro/intro-continue-button";
 
 import UiConditionalRender from "@shared/ui/ui-conditional-render";
 import UiVideoBg from "@shared/ui/ui-video-bg";
@@ -31,7 +30,7 @@ const IntroPage = ({ interviewPage }: { interviewPage: React.ReactNode }) => {
         </div>
       </UiConditionalRender>
 
-      <InterviewIsShowProvider>{interviewPage}</InterviewIsShowProvider>
+      {interviewPage}
     </>
   );
 };

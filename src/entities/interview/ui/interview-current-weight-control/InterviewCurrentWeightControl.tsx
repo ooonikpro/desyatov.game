@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum";
-import { defaultWeightForMan, defaultWeightForWoman, weightList } from "@entities/interview/constants/weight.ts";
+import { defaultWeightForMan, defaultWeightForWoman, weightList } from "@entities/interview/constants/weight";
 import interviewModel from "@entities/interview/model";
 import GenderEnum from "@shared/constants/genderEnum";
 import UiMobileSelect from "@shared/ui/ui-mobile-select";

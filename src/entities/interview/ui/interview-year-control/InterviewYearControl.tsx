@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum.ts";
+import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum";
 import { defaultYear, yearsList } from "@entities/interview/constants/years";
 import interviewModel from "@entities/interview/model";
 import UiMobileSelect from "@shared/ui/ui-mobile-select";

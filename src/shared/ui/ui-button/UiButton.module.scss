@@ -1,8 +1,6 @@
 .root {
   -webkit-tap-highlight-color: transparent;
   border: none;
-  height: 6rem;
-  font-size: 2.2rem;
   font-weight: 500;
   border-radius: 6.2rem;
 
@@ -15,6 +13,11 @@
     color: var(--body-text-color);
   }
 
+  &.black {
+    background-color: $black;
+    color: $white;
+  }
+
   &.link {
     background-color: transparent;
 
@@ -25,5 +28,15 @@
     @include forLightTheme {
       color: rgba($black, .5);
     }
+  }
+
+  &.l {
+    height: 6rem;
+    font-size: 2.2rem;
+  }
+
+  &.m {
+    height: 3.6rem;
+    font-size: 1.6rem;
   }
 }
