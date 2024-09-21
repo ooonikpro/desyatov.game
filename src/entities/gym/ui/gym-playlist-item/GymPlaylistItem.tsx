@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { useRef } from "react";
 import addLeadingZero from "@shared/lib/addLeadingZero";
 import UiConditionalRender from "@shared/ui/ui-conditional-render";
 import s from "./GymPlaylistItem.module.scss";
@@ -16,13 +17,18 @@ const GymPlaylistItem = ({
   onClick: () => void;
   isComplete?: boolean;
 }) => {
+  const imgRef = useRef<HTMLImageElement>(null);
   const minutes = Math.trunc(duration / 60);
   const sec = Math.trunc((duration / 60 - minutes) * 100);
+
+  const handleLoadImage = () => {
+    imgRef.current?.classList.add(s.loaded);
+  };
 
   return (
     <div className={cn(s.root, { [s.completed]: isComplete })} onClick={onClick}>
       <div className={s.coverWrap}>
-        <img src={img} alt={title} className={s.cover} loading="lazy" />
+        <img ref={imgRef} src={img} alt={title} className={s.cover} loading="lazy" onLoad={handleLoadImage} />
 
         <UiConditionalRender condition={isComplete}>
           <div className={s.completedIcon}>

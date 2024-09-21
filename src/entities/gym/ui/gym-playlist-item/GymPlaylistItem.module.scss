@@ -46,6 +46,12 @@
   height: 70px;
   grid-area: cover;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 250ms ease;
+
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 .title {

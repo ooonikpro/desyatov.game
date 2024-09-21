@@ -13,7 +13,6 @@ const GymExpandedBlock = (
 ) => {
   const rootRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const rootState = useRef<{ width: number; height: number; top: number; left: number; borderRadius: string } | null>();
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [isShowPlaylist, setIsShowPlaylist] = useState(false);
@@ -22,17 +21,6 @@ const GymExpandedBlock = (
     if (!isExpanded && rootRef.current && contentRef.current) {
       const { width, height, top, left } = contentRef.current.getBoundingClientRect();
 
-      if (!rootState.current) {
-        rootState.current = {
-          width,
-          height,
-          top,
-          left,
-          borderRadius: contentRef.current.style.borderRadius,
-        };
-      }
-
-      rootRef.current.style.width = width + "px";
       rootRef.current.style.height = height + "px";
 
       contentRef.current.style.width = width + "px";
@@ -56,16 +44,26 @@ const GymExpandedBlock = (
     }
   };
   const close = () => {
-    if (isExpanded && rootRef.current && contentRef.current && rootState.current) {
+    if (isExpanded && rootRef.current && contentRef.current) {
+      const { width, height, top, left } = rootRef.current.getBoundingClientRect();
+
       setIsShowPlaylist(false);
-      contentRef.current.style.width = rootState.current.width + "px";
-      contentRef.current.style.height = rootState.current.height + "px";
-      contentRef.current.style.top = rootState.current.top + "px";
-      contentRef.current.style.left = rootState.current.left + "px";
-      contentRef.current.style.borderRadius = rootState.current.borderRadius;
+      contentRef.current.style.width = width + "px";
+      contentRef.current.style.height = height + "px";
+      contentRef.current.style.top = top + "px";
+      contentRef.current.style.left = left + "px";
+      contentRef.current.style.borderRadius = rootRef.current.style.borderRadius + "px";
 
       setTimeout(() => {
         setIsExpanded(false);
+
+        if (contentRef.current) {
+          contentRef.current.style.width = "";
+          contentRef.current.style.height = "";
+          contentRef.current.style.top = "";
+          contentRef.current.style.left = "";
+          contentRef.current.style.borderRadius = "";
+        }
       }, animationDuration);
     }
   };
@@ -76,7 +74,7 @@ const GymExpandedBlock = (
       open,
       close,
     }),
-    [isExpanded, rootState.current],
+    [isExpanded],
   );
 
   return (
