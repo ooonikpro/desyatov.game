@@ -1,6 +1,6 @@
 import cn from "classnames";
 import { useRef } from "react";
-import addLeadingZero from "@shared/lib/addLeadingZero";
+import getTime from "@shared/lib/getTime";
 import UiConditionalRender from "@shared/ui/ui-conditional-render";
 import s from "./GymPlaylistItem.module.scss";
 
@@ -18,8 +18,6 @@ const GymPlaylistItem = ({
   isComplete?: boolean;
 }) => {
   const imgRef = useRef<HTMLImageElement>(null);
-  const minutes = Math.trunc(duration / 60);
-  const sec = Math.trunc((duration / 60 - minutes) * 100);
 
   const handleLoadImage = () => {
     imgRef.current?.classList.add(s.loaded);
@@ -43,14 +41,7 @@ const GymPlaylistItem = ({
       </div>
       <div className={s.text}>
         <h4 className={s.title}>{title}</h4>
-        <UiConditionalRender
-          condition={isComplete}
-          other={
-            <span className={s.duration}>
-              {addLeadingZero(minutes)}:{addLeadingZero(sec)}
-            </span>
-          }
-        >
+        <UiConditionalRender condition={isComplete} other={<span className={s.duration}>{getTime(duration)}</span>}>
           <span className={s.duration}>Выполнено</span>
         </UiConditionalRender>
       </div>

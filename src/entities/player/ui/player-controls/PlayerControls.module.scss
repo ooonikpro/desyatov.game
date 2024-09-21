@@ -1,0 +1,36 @@
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  background-color: var(--player-blured-bg);
+  backdrop-filter: var(--player-blur);
+}
+
+.btn {
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.small {
+    width: 72px;
+    height: 72px;
+    background-color: var(--player-blured-bg);
+    color: var(--player-blured-color);
+    backdrop-filter: var(--player-blur);
+    opacity: .8;
+  }
+
+  &.big {
+    background-color: var(--primary-color);
+    color: var(--body-text-color);
+    width: 90px;
+    height: 90px;
+  }
+}

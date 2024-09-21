@@ -1,0 +1,17 @@
+.root {
+  width: 42px;
+  height: 42px;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
+  border-radius: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  transform: scale(.5);
+}

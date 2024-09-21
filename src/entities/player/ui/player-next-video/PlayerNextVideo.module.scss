@@ -1,0 +1,62 @@
+.root {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  background-color: var(--player-blured-bg);
+  color: var(--player-blured-color);
+  backdrop-filter: var(--player-blur);
+  padding: 20px;
+  border-radius: 17px;
+}
+
+.coverWrap {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--player-blured-bg);
+}
+
+.cover {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 250ms ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.text {
+  color: var(--player-blured-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 4px 16px;
+}
+
+.next {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.nextBtn {
+  background: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--player-blured-color);
+  padding: 12px;
+  flex-shrink: 0;
+  margin-left: auto;
+}

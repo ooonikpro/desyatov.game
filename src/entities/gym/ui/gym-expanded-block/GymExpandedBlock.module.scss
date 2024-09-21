@@ -12,7 +12,7 @@
   &.expanded {
     box-shadow: none;
     position: fixed;
-    z-index: 88888;
+    z-index: 10;
     overflow-y: auto;
   }
 }
@@ -40,24 +40,9 @@
 }
 
 .closeBtn {
-  width: 42px;
-  height: 42px;
-  border: none;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  background-color: var(--body-bg-color);
-  color: var(--body-text-color);
   position: fixed;
   top: 20px;
   right: 20px;
-  border-radius: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  :global(svg) {
-    transform: scale(.5);
-  }
 }
 
 .actionWrap {
