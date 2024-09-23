@@ -1,5 +1,7 @@
 import GymDailyChallenge from "@entities/gym/ui/gym-daily-challenge";
+import GymDailyExercises from "@entities/gym/ui/gym-daily-exercises";
 import GymDayBlock from "@entities/gym/ui/gym-day-block";
+import GymWeeklyExercises from "@entities/gym/ui/gym-weekly-exercises";
 import UiButton from "@shared/ui/ui-button";
 
 import s from "./HomePage.module.scss";
@@ -16,6 +18,9 @@ const HomePage = () => {
         )}
         duration="1мин"
       />
+
+      <GymDailyExercises />
+      <GymWeeklyExercises />
 
       <GymDayBlock
         title="Тренировочный день 1"

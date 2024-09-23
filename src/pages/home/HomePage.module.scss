@@ -1,6 +1,6 @@
 .root {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   padding: 32px 16px;
   gap: 16px;
 }

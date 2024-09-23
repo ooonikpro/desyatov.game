@@ -1,0 +1,37 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+  width: calc(50% - 8px);
+  border-radius: 17px;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  color: var(--body-text-color);
+  position: relative;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 400;
+  padding-right: 60px;
+
+  @include forDarkTheme {
+    b {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.value {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
