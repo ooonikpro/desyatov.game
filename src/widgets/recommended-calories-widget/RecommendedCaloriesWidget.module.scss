@@ -1,0 +1,62 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  color: var(--body-text-color);
+  border-radius: 17px;
+  padding: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.details {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 26px;
+}
+
+.groups {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+
+.groupName {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.groupValue {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.total {
+  font-size: 32px;
+  font-weight: 900;
+}
