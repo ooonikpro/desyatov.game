@@ -1,6 +1,6 @@
 import s from "./PlayerNextVideo.module.scss";
 
-const PlayerNextVideo = ({ img, title }) => {
+const PlayerNextVideo = ({ img, title }: { img: string; title: string }) => {
   return (
     <div className={s.root}>
       <div className={s.coverWrap}>

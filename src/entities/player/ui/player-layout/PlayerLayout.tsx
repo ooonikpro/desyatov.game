@@ -1,8 +1,17 @@
 import cn from "classnames";
+import React from "react";
 import UiCloseButton from "@shared/ui/ui-close-button";
 import s from "./PlayerLayout.module.scss";
 
-const PlayerLayout = ({ video, timeline, controls }) => {
+const PlayerLayout = ({
+  video,
+  timeline,
+  controls,
+}: {
+  video: React.ReactNode;
+  timeline: React.ReactNode;
+  controls: React.ReactNode;
+}) => {
   const handleClose = () => {};
 
   return (

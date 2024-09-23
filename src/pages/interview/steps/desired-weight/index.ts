@@ -1,1 +1,1 @@
-export { default } from "./InterviewStepDesiredWeightPage.tsx";
+export { default } from "./InterviewStepDesiredWeightPage";

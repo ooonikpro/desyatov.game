@@ -1,1 +1,1 @@
-export { default } from "./IntroContinueButton.tsx";
+export { default } from "./IntroContinueButton";

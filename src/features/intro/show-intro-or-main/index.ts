@@ -1,1 +1,1 @@
-export { default } from "./ShowIntroOrMain.tsx";
+export { default } from "./ShowIntroOrMain";

@@ -1,6 +1,7 @@
+import React from "react";
 import s from "./PlayerTimeline.module.scss";
 
-const PlayerTimeline = ({ nextVideo }) => {
+const PlayerTimeline = ({ nextVideo }: { nextVideo: React.ReactNode }) => {
   return (
     <div className={s.root}>
       <span className={s.time}>00:15</span>

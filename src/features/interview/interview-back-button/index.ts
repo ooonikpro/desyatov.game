@@ -1,1 +1,1 @@
-export { default } from "./InterviewBackButton.tsx";
+export { default } from "./InterviewBackButton";
