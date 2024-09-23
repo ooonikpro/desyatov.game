@@ -1,6 +1,6 @@
-import s from "./RecommendedCaloriesWidget.module.scss";
+import s from "./CaloriesRecommended.module.scss";
 
-const RecommendedCaloriesWidget = () => {
+const CaloriesRecommended = () => {
   return (
     <div className={s.root}>
       <h3 className={s.title}>Рекомендуемая норма калорий</h3>
@@ -44,4 +44,4 @@ const RecommendedCaloriesWidget = () => {
   );
 };
 
-export default RecommendedCaloriesWidget;
+export default CaloriesRecommended;

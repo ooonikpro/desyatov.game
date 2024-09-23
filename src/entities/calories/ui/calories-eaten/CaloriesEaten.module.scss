@@ -1,0 +1,57 @@
+.root {
+  display: grid;
+  grid-template-areas:
+    "title chart"
+    ". chart"
+    "value chart";
+  grid-template-columns: 1fr auto;
+  width: calc(50% - 8px);
+  border-radius: 17px;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  color: var(--body-text-color);
+  position: relative;
+}
+
+.title {
+  grid-area: title;
+  font-size: 16px;
+  font-weight: 400;
+
+  @include forDarkTheme {
+    b {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.chart {
+  grid-area: chart;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.barValue,
+.barLabel {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.progress {
+  height: 70px;
+}
+
+.value {
+  grid-area: value;
+  font-size: 28px;
+  font-weight: 900;
+}

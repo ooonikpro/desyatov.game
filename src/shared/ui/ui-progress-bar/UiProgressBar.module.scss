@@ -1,20 +1,35 @@
 .root {
-  width: 100%;
   overflow: hidden;
   border-radius: 22px;
   background-color: var(--body-bg-color);
-  box-shadow: inset 0 0 1px rgba(0,0,0, .1);
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1);
 
-  &.xs {
-    height: 6px;
+  &.vertically {
+    &.xs {
+      width: 6px;
+    }
+
+    &.s {
+      width: 9px;
+    }
+
+    &.m {
+      width: 12px;
+    }
   }
 
-  &.s {
-    height: 9px;
-  }
+  &.horizontally {
+    &.xs {
+      height: 6px;
+    }
 
-  &.m {
-    height: 12px;
+    &.s {
+      height: 9px;
+    }
+
+    &.m {
+      height: 12px;
+    }
   }
 }
 
@@ -22,7 +37,7 @@
   width: inherit;
   height: inherit;
   background-color: var(--primary-color);
-  box-shadow: 0 0 1px rgba(0,0,0, .1);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
   transition: transform 300ms ease;
   border-radius: inherit;
 }
