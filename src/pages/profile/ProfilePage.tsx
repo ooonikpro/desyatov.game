@@ -1,5 +1,7 @@
+import UiGrid from "@shared/ui/ui-grid";
+
 const ProfilePage = () => {
-  return <div>Profile</div>;
+  return <UiGrid.Container>Profile</UiGrid.Container>;
 };
 
 export default ProfilePage;

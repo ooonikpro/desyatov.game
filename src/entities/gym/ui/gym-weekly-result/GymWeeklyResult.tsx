@@ -1,12 +1,14 @@
-import s from "@entities/gym/ui/gym-daily-exercises/GymDailyExercises.module.scss";
+import UiWidgetWithIcon from "../../../../shared/ui/ui-mini-widget-with-icon";
 
-const GymWeeklyExercises = () => {
+const GymWeeklyResult = () => {
   return (
-    <div className={s.root}>
-      <h4 className={s.title}>
-        Выполнено тренировок за&nbsp;<b>неделю</b>
-      </h4>
-      <div className={s.icon}>
+    <UiWidgetWithIcon
+      title={
+        <>
+          Выполнено тренировок за&nbsp;<b>неделю</b>
+        </>
+      }
+      icon={
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M30.6217 17.1638C30.3989 19.9628 29.3773 22.6391 27.6783 24.8746C25.9792 27.1101 23.674 28.8109 21.0367 29.775C18.3994 30.7391 15.5407 30.9259 12.8003 30.3132C10.0599 29.7005 7.55302 28.3141 5.57744 26.3187C3.60186 24.3233 2.24063 21.8028 1.65548 19.0566C1.07034 16.3103 1.28586 13.4539 2.27646 10.8265C3.26706 8.1992 4.99109 5.91141 7.24372 4.23499C9.49635 2.55857 12.1829 1.56398 14.9842 1.36938"
@@ -23,10 +25,10 @@ const GymWeeklyExercises = () => {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
-      <div className={s.value}>0 / 3</div>
-    </div>
+      }
+      value="0 / 3"
+    />
   );
 };
 
-export default GymWeeklyExercises;
+export default GymWeeklyResult;

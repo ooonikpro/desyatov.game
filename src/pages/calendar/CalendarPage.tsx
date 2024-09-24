@@ -1,5 +1,7 @@
+import UiGrid from "@shared/ui/ui-grid";
+
 const CalendarPage = () => {
-  return <div>Calendar</div>;
+  return <UiGrid.Container>Calendar</UiGrid.Container>;
 };
 
 export default CalendarPage;

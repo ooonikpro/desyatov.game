@@ -1,10 +1,10 @@
 .root {
+  width: 100%;
   display: grid;
   grid-template:
     "label icon"
     "title title"
-    "duration action"
-  ;
+    "duration action";
   color: var(--body-text-color);
 }
 

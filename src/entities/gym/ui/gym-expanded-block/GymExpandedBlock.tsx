@@ -17,6 +17,7 @@ const GymExpandedBlock = (
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [isShowPlaylist, setIsShowPlaylist] = useState(false);
+  const [isShowCloseBtn, setIsShowCloseBtn] = useState(false);
 
   const open = () => {
     if (!isExpanded && rootRef.current && contentRef.current) {
@@ -37,10 +38,10 @@ const GymExpandedBlock = (
           contentRef.current.style.height = "100%";
           contentRef.current.style.top = "0";
           contentRef.current.style.left = "0";
-          contentRef.current.style.borderRadius = "0";
-        }
 
-        setIsShowPlaylist(true);
+          setTimeout(() => setIsShowCloseBtn(true), 100);
+          setTimeout(() => setIsShowPlaylist(true), 150);
+        }
       });
     }
   };
@@ -49,6 +50,8 @@ const GymExpandedBlock = (
       const { width, height, top, left } = rootRef.current.getBoundingClientRect();
 
       setIsShowPlaylist(false);
+      setIsShowCloseBtn(false);
+
       contentRef.current.style.width = width + "px";
       contentRef.current.style.height = height + "px";
       contentRef.current.style.top = top + "px";
@@ -84,7 +87,7 @@ const GymExpandedBlock = (
         <div className={s.headerWrap}>
           <div className={s.titleWrap}>{titleNode}</div>
           <div className={s.iconWrap}>
-            <UiConditionalRender condition={isShowPlaylist} other={iconNode}>
+            <UiConditionalRender condition={isShowCloseBtn} other={iconNode}>
               <UiCloseButton onClick={close} className={s.closeBtn} />
             </UiConditionalRender>
           </div>

@@ -3,9 +3,9 @@
   grid-template-areas:
     "title icon"
     "description description"
-    "action action"
-  ;
+    "action action";
   grid-template-rows: 32px auto auto;
+  width: 100%;
   min-height: 150px;
 }
 
@@ -24,11 +24,11 @@
   margin-bottom: 24px;
 
   @include forLightTheme {
-    color: rgba($black, .5);
+    color: rgba($black, 0.5);
   }
 
   @include forDarkTheme {
-    color: rgba($white, .5);
+    color: rgba($white, 0.5);
   }
 }
 
