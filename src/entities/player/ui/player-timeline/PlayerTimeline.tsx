@@ -26,8 +26,6 @@ const PlayerTimeline = () => {
         ((e.touches[0].pageX - e.currentTarget.offsetLeft) / e.currentTarget.clientWidth) * 100;
 
       if (player) playerModel.setPlayerTime(((player?.duration ?? 1) * cursorPosPercentage) / 100);
-
-      TelegramApi.vibrate();
     } catch (e) {
       console.error(e);
     }
