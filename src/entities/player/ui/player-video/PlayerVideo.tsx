@@ -44,14 +44,14 @@ const PlayerVideo = () => {
 
   return (
     <div {...handlers} className={s.root} onClick={pipe(TelegramApi.vibrate, handleClick)}>
-      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <video
         ref={videoRef}
         src={video?.video}
         className={s.video}
         disablePictureInPicture
         disableRemotePlayback
-        playsInline={false}
+        playsInline
+        webkit-playsInline
       />
       ;
     </div>
