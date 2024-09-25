@@ -51,7 +51,7 @@ const PlayerVideo = () => {
         className={s.video}
         disablePictureInPicture
         disableRemotePlayback
-        playsInline
+        playsInline={false}
       />
       ;
     </div>
