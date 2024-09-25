@@ -1,7 +1,7 @@
 import createStore from "@shared/lib/createModel";
-import { InterviewModelType } from "./types";
+import { InterviewMethodsType, InterviewStateType } from "./types";
 
-const interviewModel = createStore<InterviewModelType>((set, get) => {
+const interviewModel = createStore<InterviewStateType, InterviewMethodsType>((set, get) => {
   const setStep = (step: number) => set((state) => (state.step = step));
   const setIsShow = (isShow: boolean) =>
     set((state) => {

@@ -29,6 +29,12 @@ export type ZustandModel<S extends ZStore<ZStoreState, ZStoreMethods>> = {
   // eslint-disable-next-line no-unused-vars
   get: <K extends keyof S["state"]>(key: K) => S["state"][K];
   // Sync with store and get value
-  // eslint-disable-next-line no-unused-vars
-  use: <K extends keyof S["state"]>(key: K) => S["state"][K];
+  // eslint-disable-next-line no-unused-vars,@typescript-eslint/ban-types
+  use: <K extends keyof S["state"] | (() => any)>(
+    // eslint-disable-next-line no-unused-vars
+    keyOrSelector: K,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    // eslint-disable-next-line @typescript-eslint/ban-types
+  ) => K extends keyof S["state"] ? S["state"][K] : K extends Function ? ReturnType<K> : never;
 } & S["methods"];

@@ -1,7 +1,9 @@
+import VideoPlayerWidget from "@widgets/video-player-widget";
 import GymDailyChallenge from "@entities/gym/ui/gym-daily-challenge";
 import GymDailyExercises from "@entities/gym/ui/gym-daily-result";
 import GymDayBlock from "@entities/gym/ui/gym-day-block";
 import GymWeeklyResult from "@entities/gym/ui/gym-weekly-result";
+import PlayerPlaylist from "@entities/player/ui/player-playlist";
 import UiButton from "@shared/ui/ui-button";
 
 import UiGrid from "@shared/ui/ui-grid";
@@ -38,7 +40,9 @@ const HomePage = () => {
               Открыть
             </UiButton>
           )}
-        />
+        >
+          <PlayerPlaylist />
+        </GymDayBlock>
       </UiGrid.Column100>
 
       <UiGrid.Column100>
@@ -50,7 +54,9 @@ const HomePage = () => {
               Открыть
             </UiButton>
           )}
-        />
+        >
+          <PlayerPlaylist />
+        </GymDayBlock>
       </UiGrid.Column100>
 
       <UiGrid.Column100>
@@ -62,8 +68,12 @@ const HomePage = () => {
               Открыть
             </UiButton>
           )}
-        />
+        >
+          <PlayerPlaylist />
+        </GymDayBlock>
       </UiGrid.Column100>
+
+      <VideoPlayerWidget />
     </UiGrid.Container>
   );
 };

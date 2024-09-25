@@ -12,12 +12,12 @@ import {
   ZustandModel,
 } from "@shared/types";
 
-const createModel = <S extends ZStore<ZStoreState, ZStoreMethods>>(fn: ZStoreInitFunction<S>) => {
-  const store = create<S>()(
+const createModel = <S extends ZStoreState, M extends ZStoreMethods>(fn: ZStoreInitFunction<ZStore<S, M>>) => {
+  const store = create<ZStore<S, M>>()(
     immer(
       devtools((set, get) => {
-        const getState: ZStoreGetter<S> = () => get().state;
-        const setState: ZStoreSetter<S> = (produce) =>
+        const getState: ZStoreGetter<ZStore<S, M>> = () => get().state;
+        const setState: ZStoreSetter<ZStore<S, M>> = (produce) =>
           set((rawState) => {
             produce(rawState.state);
           });
@@ -30,8 +30,11 @@ const createModel = <S extends ZStore<ZStoreState, ZStoreMethods>>(fn: ZStoreIni
   return {
     ...store.getState().methods,
     get: (key) => (store.getState().state as S["state"])[key],
-    use: (key) => store((state) => (state.state as S["state"])[key]),
-  } as ZustandModel<S>;
+    use: (keyOrSelector) => {
+      if (typeof keyOrSelector === "function") return store(keyOrSelector);
+      else return store((state) => (state.state as S["state"])[keyOrSelector as keyof S["state"]]);
+    },
+  } as ZustandModel<ZStore<S, M>>;
 };
 
 export default createModel;

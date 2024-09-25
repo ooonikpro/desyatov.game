@@ -4,7 +4,7 @@
   border: none;
   outline: none;
   -webkit-tap-highlight-color: transparent;
-  background-color: var(--body-bg-color);
+  background-color: var(--player-blured-bg, var(--body-bg-color));
   color: var(--body-text-color);
   border-radius: 36px;
   display: flex;
@@ -13,5 +13,5 @@
 }
 
 .icon {
-  transform: scale(.5);
+  transform: scale(0.5);
 }

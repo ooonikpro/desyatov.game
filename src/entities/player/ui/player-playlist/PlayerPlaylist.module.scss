@@ -1,0 +1,27 @@
+.root,
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.root {
+  gap: 12px;
+  padding-bottom: 16px;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+
+  @include forLightTheme {
+    color: rgba($black, 0.7);
+  }
+
+  @include forDarkTheme {
+    color: rgba($white, 0.7);
+  }
+}
+
+.list {
+  gap: 8px;
+}

@@ -1,10 +1,15 @@
-import addLeadingZero from "./addLeadingZero";
-
 const getTime = (duration: number) => {
-  const minutes = Math.trunc(duration / 60);
-  const sec = Math.trunc((duration / 60 - minutes) * 100);
+  if (Number.isNaN(duration)) return "00:00";
 
-  return `${addLeadingZero(minutes)}:${addLeadingZero(sec)}`;
+  const minutes = Math.floor(duration / 60)
+    .toString()
+    .padStart(2, "0");
+
+  const sec = Math.ceil(duration % 60)
+    .toString()
+    .padStart(2, "0");
+
+  return `${minutes}:${sec}`;
 };
 
 export default getTime;
