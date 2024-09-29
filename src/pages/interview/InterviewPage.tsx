@@ -1,5 +1,6 @@
 import cn from "classnames";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import useMount from "react-use/lib/useMount";
 import InterviewStepActivityPage from "@pages/interview/steps/activity";
 import InterviewStepAgePage from "@pages/interview/steps/age";
 import InterviewStepCurrentWeightPage from "@pages/interview/steps/current-weight";
@@ -40,9 +41,9 @@ const InterviewPage = ({ onTransitionEnd }: { onTransitionEnd: () => void }) => 
     ]);
   }, []);
 
-  useEffect(() => {
+  useMount(() => {
     setIsShow(true);
-  }, []);
+  });
 
   return (
     <div className={cn(s.root, { [s.show]: isShow })} onTransitionEnd={handleTransitionEnd}>

@@ -1,9 +1,9 @@
 import cn from "classnames";
-import { UiVideoBgProps } from "./types";
+import { UiVideoBgPropsType } from "./types";
 
 import s from "./UiVideoBg.module.scss";
 
-const UiVideoBg = ({ src, ...$attrs }: UiVideoBgProps) => {
+const UiVideoBg = ({ src, ...$attrs }: UiVideoBgPropsType) => {
   return (
     <div {...$attrs} className={cn(s.root, $attrs.className)}>
       <video preload="auto" muted playsInline autoPlay loop src={src} controls={false} className={s.video}>

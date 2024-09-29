@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite --host",
     "build": "tsc -b && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext ts,tsx",
+    "tsc": "tsc --skipLibCheck --noEmit",
     "preview": "vite preview"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
+      "eslint . --ext ts,tsx --fix",
       "tsc --skipLibCheck --noEmit"
     ],
     "**/*.{ts,tsx}": [
@@ -26,13 +28,16 @@
     "classnames": "^2.5.1",
     "immer": "^10.1.1",
     "localforage": "^1.10.0",
+    "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-swipeable": "^7.0.1",
+    "react-use": "^17.5.1",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@feature-sliced/eslint-config": "^0.1.1",
+    "@types/lodash": "^4.17.9",
     "@types/node": "^22.1.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

@@ -33,11 +33,11 @@ export type PlayerModelMethodsType = {
   getNextVideo: () => PlayerVideoType | undefined;
   switchToPrevVideo: () => void;
   switchToNextVideo: () => void;
-  // eslint-disable-next-line no-unused-vars
+   
   setVideo: (index: number) => void;
-  // eslint-disable-next-line no-unused-vars
+   
   setPlayer: (player: HTMLVideoElement) => void;
-  // eslint-disable-next-line no-unused-vars
+   
   setPlayerTime: (time: number) => void;
   fetchPlaylist: () => void;
   markCurrentVideoAsCompleted: () => void;

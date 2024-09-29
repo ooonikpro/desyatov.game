@@ -11,7 +11,7 @@ const GymDayBlock = ({
 }: {
   title: string;
   description: string;
-  // eslint-disable-next-line no-unused-vars
+   
   actionButton: (cb: () => void) => React.ReactNode;
   children: React.ReactNode;
 }) => {

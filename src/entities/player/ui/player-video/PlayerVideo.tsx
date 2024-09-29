@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
+import pipe from "lodash/fp/pipe";
+import { useRef } from "react";
 import { useSwipeable } from "react-swipeable";
+import useMount from "react-use/lib/useMount";
 import playerModel from "@entities/player/model";
 import TelegramApi from "@shared/api/telegram";
-import pipe from "@shared/lib/pipe";
+
 import s from "./PlayerVideo.module.scss";
 
 const PlayerVideo = () => {
@@ -38,9 +40,9 @@ const PlayerVideo = () => {
     onSwipedUp: playerModel.hidePlaylist,
   });
 
-  useEffect(() => {
+  useMount(() => {
     if (videoRef.current) playerModel.setPlayer(videoRef.current);
-  }, []);
+  });
 
   return (
     <div {...handlers} className={s.root} onClick={pipe(TelegramApi.vibrate, handleClick)}>
@@ -53,7 +55,6 @@ const PlayerVideo = () => {
         playsInline
         webkit-playsInline
       />
-      ;
     </div>
   );
 };

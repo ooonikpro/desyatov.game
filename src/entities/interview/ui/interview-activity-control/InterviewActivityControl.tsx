@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { useEffect } from "react";
+import useMount from "react-use/lib/useMount";
 import { ActivityEnum, activityList, defaultActivity } from "@entities/interview/constants/activity";
 import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum";
 
@@ -7,7 +7,7 @@ import interviewModel from "@entities/interview/model";
 import TelegramApi from "@shared/api/telegram";
 import s from "./InterviewActivity.module.scss";
 
-const InterviewActivityControl = ({ id = AnswerKeyEnum.activity }) => {
+const InterviewActivityControl = ({ id = AnswerKeyEnum.activity }: { id?: AnswerKeyEnum.activity }) => {
   const answers = interviewModel.use("answers");
   const value = answers[id];
 
@@ -16,9 +16,9 @@ const InterviewActivityControl = ({ id = AnswerKeyEnum.activity }) => {
     interviewModel.setAnswer(id, val);
   };
 
-  useEffect(() => {
+  useMount(() => {
     if (!value) interviewModel.setAnswer(id, defaultActivity);
-  }, []);
+  });
 
   return (
     <div className={s.root}>

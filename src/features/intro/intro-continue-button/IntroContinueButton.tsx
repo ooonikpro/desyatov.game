@@ -1,7 +1,7 @@
 import interviewModel from "@entities/interview/model";
 import UiButton from "@shared/ui/ui-button";
 
-// eslint-disable-next-line no-unused-vars
+ 
 const IntroContinueButton = ({ beforeClick }: { beforeClick: () => void }) => {
   const handleClick = async () => {
     beforeClick();

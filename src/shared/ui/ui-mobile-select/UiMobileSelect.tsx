@@ -12,7 +12,7 @@ const UiMobileSelect = ({
   options: Array<string>;
   value: string;
   label?: string;
-  // eslint-disable-next-line no-unused-vars
+   
   onChange: (val: string) => void;
 }) => {
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
