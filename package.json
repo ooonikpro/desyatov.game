@@ -61,5 +61,9 @@
     "vite": "^5.3.4",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-pwa": "^0.20.1"
+  },
+  "engines" : {
+    "npm" : "10.7.0",
+    "node" : "18.20.4"
   }
 }
