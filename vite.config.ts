@@ -2,9 +2,11 @@ import * as path from "path";
 import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vite";
 
+const APP_BASE_URL = process.env.APP_BASE_URL ?? "";
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/desyatov.game/",
+  base: APP_BASE_URL,
   plugins: [react()],
   resolve: {
     alias: {
