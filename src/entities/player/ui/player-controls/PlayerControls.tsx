@@ -1,6 +1,6 @@
+import pipe from "lodash/fp/pipe";
 import playerModel from "@entities/player/model";
 import TelegramApi from "@shared/api/telegram";
-import pipe from "@shared/lib/pipe";
 import s from "./PlayerControls.module.scss";
 
 const PlayerControls = () => {

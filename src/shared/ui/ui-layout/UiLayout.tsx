@@ -1,12 +1,13 @@
 import cn from "classnames";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
+import useMount from "react-use/lib/useMount";
 import s from "./UiLayout.module.scss";
 
 const UiLayout = ({ children, bottomNavigation }: { children: React.ReactNode; bottomNavigation: React.ReactNode }) => {
   const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => setIsMounted(true), []);
+  useMount(() => setIsMounted(true));
 
   return (
     <div className={s.root}>

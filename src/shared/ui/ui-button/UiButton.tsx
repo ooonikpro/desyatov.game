@@ -1,15 +1,16 @@
 import cn from "classnames";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import useMount from "react-use/lib/useMount";
 import TelegramApi from "@shared/api/telegram";
-import { UiButtonProps } from "./types";
+import { UiButtonPropsType } from "./types";
 import s from "./UiButton.module.scss";
 
-const UiButton = ({ theme = "primary", size = "l", children, block, ...$attrs }: UiButtonProps) => {
+const UiButton = ({ theme = "primary", size = "l", children, block, ...$attrs }: UiButtonPropsType) => {
   const ref = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
+  useMount(() => {
     ref.current?.addEventListener("click", TelegramApi.vibrate);
-  }, []);
+  });
 
   return (
     <button

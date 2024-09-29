@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { forwardRef, useCallback, useImperativeHandle, useRef, useState } from "react";
 import UiCloseButton from "@shared/ui/ui-close-button";
 import UiConditionalRender from "@shared/ui/ui-conditional-render";
 
@@ -19,7 +19,7 @@ const GymExpandedBlock = (
   const [isShowPlaylist, setIsShowPlaylist] = useState(false);
   const [isShowCloseBtn, setIsShowCloseBtn] = useState(false);
 
-  const open = () => {
+  const open = useCallback(() => {
     if (!isExpanded && rootRef.current && contentRef.current) {
       const { width, height, top, left } = contentRef.current.getBoundingClientRect();
 
@@ -44,8 +44,8 @@ const GymExpandedBlock = (
         }
       });
     }
-  };
-  const close = () => {
+  }, [isExpanded]);
+  const close = useCallback(() => {
     if (isExpanded && rootRef.current && contentRef.current) {
       const { width, height, top, left } = rootRef.current.getBoundingClientRect();
 
@@ -70,7 +70,7 @@ const GymExpandedBlock = (
         }
       }, animationDuration);
     }
-  };
+  }, [isExpanded]);
 
   useImperativeHandle(
     ref,
@@ -78,7 +78,7 @@ const GymExpandedBlock = (
       open,
       close,
     }),
-    [isExpanded],
+    [close, open],
   );
 
   return (

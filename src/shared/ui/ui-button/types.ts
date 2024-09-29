@@ -1,6 +1,6 @@
 import type React from "react";
 
-export type UiButtonProps = {
+export type UiButtonPropsType = {
   theme?: "primary" | "link" | "black";
   children: React.ReactNode;
   block?: boolean;

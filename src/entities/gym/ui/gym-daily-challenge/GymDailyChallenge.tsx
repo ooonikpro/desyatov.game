@@ -8,7 +8,7 @@ const GymDailyChallenge = ({
   duration,
 }: {
   title: string;
-  // eslint-disable-next-line no-unused-vars
+   
   actionButton: (cb: () => void) => React.ReactNode;
   duration: string;
 }) => {

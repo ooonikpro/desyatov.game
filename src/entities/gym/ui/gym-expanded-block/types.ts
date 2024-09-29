@@ -10,7 +10,7 @@ export type GymExpandedBlockPropsType = {
   iconNode: React.ReactNode | React.ReactNode[];
   textNode?: React.ReactNode | React.ReactNode[];
   children: React.ReactNode | React.ReactNode[];
-  // eslint-disable-next-line no-unused-vars
+   
   actionNode: (onClick: () => void) => React.ReactNode | React.ReactNode[];
 };
 

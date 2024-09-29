@@ -3,21 +3,23 @@ import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import {
-  ZStore,
-  ZStoreGetter,
-  ZStoreInitFunction,
-  ZStoreMethods,
-  ZStoreSetter,
-  ZStoreState,
-  ZustandModel,
+  ZStoreType,
+  ZStoreGetterType,
+  ZStoreInitFunctionType,
+  ZStoreMethodsType,
+  ZStoreSetterType,
+  ZStoreStateType,
+  ZustandModelType,
 } from "@shared/types";
 
-const createModel = <S extends ZStoreState, M extends ZStoreMethods>(fn: ZStoreInitFunction<ZStore<S, M>>) => {
-  const store = create<ZStore<S, M>>()(
+const createModel = <S extends ZStoreStateType, M extends ZStoreMethodsType>(
+  fn: ZStoreInitFunctionType<ZStoreType<S, M>>,
+) => {
+  const store = create<ZStoreType<S, M>>()(
     immer(
       devtools((set, get) => {
-        const getState: ZStoreGetter<ZStore<S, M>> = () => get().state;
-        const setState: ZStoreSetter<ZStore<S, M>> = (produce) =>
+        const getState: ZStoreGetterType<ZStoreType<S, M>> = () => get().state;
+        const setState: ZStoreSetterType<ZStoreType<S, M>> = (produce) =>
           set((rawState) => {
             produce(rawState.state);
           });
@@ -34,7 +36,7 @@ const createModel = <S extends ZStoreState, M extends ZStoreMethods>(fn: ZStoreI
       if (typeof keyOrSelector === "function") return store(keyOrSelector);
       else return store((state) => (state.state as S["state"])[keyOrSelector as keyof S["state"]]);
     },
-  } as ZustandModel<ZStore<S, M>>;
+  } as ZustandModelType<ZStoreType<S, M>>;
 };
 
 export default createModel;

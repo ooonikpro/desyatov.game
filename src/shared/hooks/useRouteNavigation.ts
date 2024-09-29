@@ -5,7 +5,7 @@ const useRouteNavigation = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { get, use, ...methods } = routerStore;
 
-  // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, startTransition] = useTransition();
 
   const withTransition = (fn: () => void) => () => startTransition(() => fn());

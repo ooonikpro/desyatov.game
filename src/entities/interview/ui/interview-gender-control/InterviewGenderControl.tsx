@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { useEffect } from "react";
+import useMount from "react-use/lib/useMount";
 import AnswerKeyEnum from "@entities/interview/constants/answerKeyEnum";
 import { genderList } from "@entities/interview/constants/gender";
 import interviewModel from "@entities/interview/model";
@@ -24,16 +24,16 @@ const InterviewGenderControl = ({
 
   const isActive = (val: any) => answers[id] === val;
 
-  useEffect(() => {
+  useMount(() => {
     if (!answers[id]) interviewModel.setAnswer(id, defaultValue);
-  }, []);
+  });
 
   return (
     <div className={s.root}>
       {genderList.map((option) => (
         <span
-          className={cn(s.option, { [s.active]: isActive(option.value) })}
           key={option.value}
+          className={cn(s.option, { [s.active]: isActive(option.value) })}
           onClick={() => handleClick(option.value)}
         >
           {option.label}
