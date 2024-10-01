@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import CalendarPage from "@pages/calendar";
 import HomePage from "@pages/home";
 import InterviewPage from "@pages/interview";
@@ -15,6 +15,22 @@ import ShowIntroOrMain from "../features/intro/show-intro-or-main";
 import AppRouteName from "./AppRouteName";
 
 const App = () => {
+  useEffect(() => {
+    const checkBackend = async () => {
+      try {
+        const response = await fetch('http://localhost:3000');
+        if (response.ok) {
+          console.log('Backend is up and running status ' + response.status);
+        } else {
+          console.error('Backend is not responding with status 200');
+        }
+      } catch (error) {
+        console.error('Error connecting to backend:', error);
+      }
+    };
+
+    checkBackend();
+  }, []);
   return (
     <React.StrictMode>
       <ShowIntroOrMain
