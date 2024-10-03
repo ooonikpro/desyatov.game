@@ -1,6 +1,7 @@
+import Fastify from "fastify";
 import cors from "@fastify/cors";
 import fastifyPostgres from "@fastify/postgres";
-import Fastify from "fastify";
+import { UserRoutes } from "@routes/users.route";
 import { Routes } from "@routes/example.route";
 
 const fastify = Fastify({ logger: true });
@@ -16,6 +17,7 @@ fastify.register(cors, {
 });
 
 fastify.register(Routes);
+fastify.register(UserRoutes);
 
 const start = async () => {
   try {

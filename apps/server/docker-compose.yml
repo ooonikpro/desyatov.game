@@ -1,0 +1,21 @@
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres:14.8-alpine3.18
+    environment:
+      POSTGRES_DB: "fitness"
+      POSTGRES_USER: "bob"
+      POSTGRES_PASSWORD: "bob"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./src/database:/docker-entrypoint-initdb.d
+      - fitness_volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  fitness_volume:
+
+networks:
+  postgres:
+    driver: bridge

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ./src/index.ts",
+    "docker:up": "docker compose up -d",
+    "dev": "npm run docker:up && nodemon ./src/index.ts",
     "check:ts": "tsc --noEmit",
     "check:lint": "eslint . --fix",
     "check": "npm run check:ts && npm run check:lint"
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@packages/eslint-config": "*",
     "@types/node": "^22.7.4",
+    "@types/pg": "^8.11.10",
     "nodemon": "^3.1.7",
     "tsx": "^4.19.1",
     "typescript": "^5.6.2"
