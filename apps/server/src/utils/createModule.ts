@@ -1,5 +1,5 @@
 import { ServerModuleType } from "@types";
 
-const createModule = <F>(fn: ServerModuleType<F>) => fn;
+const createModule = (fn: ServerModuleType) => fn;
 
 export default createModule;

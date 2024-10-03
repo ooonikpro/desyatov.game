@@ -1,10 +1,10 @@
-import type { FastifyListenOptions } from "fastify/types/instance";
+import { FastifyListenOptions } from "fastify";
 
-export const applicationOrigin = "http://localhost:3000";
+export const applicationOrigin = "*";
 
 export const serverConfig: FastifyListenOptions = {
   host: "localhost",
-  port: "3000",
+  port: 3000,
 };
 
 export const databaseConfig = {
