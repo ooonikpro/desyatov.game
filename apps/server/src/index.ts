@@ -1,32 +1,12 @@
-import Fastify from "fastify";
-import cors from "@fastify/cors";
-import fastifyPostgres from "@fastify/postgres";
-import { UserRoutes } from "@routes/users.route";
-import { Routes } from "@routes/example.route";
+import app from "@app";
+import userModule from "@modules/users";
+import cors from "@plugins/cors.plugin";
+import database from "@plugins/database.plugin";
 
-const fastify = Fastify({ logger: true });
+import bootstrap from "@utils/bootstrap";
 
-fastify.register(fastifyPostgres, {
-  connectionString: "postgres://bob:bob@localhost:5432/fitness",
+bootstrap({
+  server: app,
+  plugins: [cors, database],
+  modules: [userModule],
 });
-
-fastify.register(cors, {
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type"],
-});
-
-fastify.register(Routes);
-fastify.register(UserRoutes);
-
-const start = async () => {
-  try {
-    await fastify.listen({ port: 3000 });
-    console.log("Server is running on http://localhost:3000");
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-};
-
-start();

@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: "bob"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - ./src/database:/docker-entrypoint-initdb.d
+      - ./database:/docker-entrypoint-initdb.d
       - fitness_volume:/var/lib/postgresql/data
     ports:
       - "5432:5432"

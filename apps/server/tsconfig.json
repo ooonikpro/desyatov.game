@@ -3,16 +3,20 @@
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "strict": true,
     "noEmit": true,
     "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@models/*": ["./src/models/*"],
-      "@routes/*": ["./src/routes/*"]
+      "@app": ["./src/app/index.ts"],
+      "@utils/*": ["./src/utils/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@plugins/*": ["./src/plugins/*"],
+      "@configs": ["./src/configs/index.ts"],
+      "@types": ["./src/types/index.ts"]
     }
   },
-  "include": ["src"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules"]
 }
