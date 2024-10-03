@@ -1,0 +1,15 @@
+@import "@shared/styles";
+
+@include forDarkTheme {
+  @import "themes/dark.theme";
+}
+
+@include forLightTheme {
+  @import "themes/light.theme";
+}
+
+body {
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
+  overflow: hidden;
+}

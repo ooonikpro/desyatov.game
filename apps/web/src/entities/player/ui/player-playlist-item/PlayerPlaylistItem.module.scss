@@ -1,0 +1,85 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  transition:
+    opacity 250ms ease,
+    background-color 250ms ease;
+  padding: 8px;
+
+  &.completed {
+    opacity: 0.5;
+  }
+
+  &.active {
+    background-color: var(--player-blured-bg);
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coverWrap {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--body-bg-color);
+}
+
+.completedIcon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  color: var(--primary-color);
+
+  @include forLightTheme {
+    background-color: rgba($black, 0.2);
+  }
+
+  @include forDarkTheme {
+    background-color: rgba($white, 0.2);
+  }
+}
+
+.cover {
+  width: 70px;
+  height: 70px;
+  grid-area: cover;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 250ms ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 400;
+  grid-area: title;
+  color: var(--body-text-color);
+}
+
+.duration {
+  font-size: 14px;
+  font-weight: 100;
+  grid-area: duration;
+
+  @include forLightTheme {
+    color: rgba($black, 0.9);
+  }
+
+  @include forDarkTheme {
+    color: rgba($white, 0.9);
+  }
+}

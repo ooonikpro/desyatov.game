@@ -1,0 +1,48 @@
+.root {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 70px 1fr auto;
+  background-color: var(--secondary-color);
+  color: var(--body-text-color);
+  padding: 32px 0;
+}
+
+.progressWrapper {
+  padding: 0 16px;
+}
+
+.body {
+  overflow: hidden;
+}
+
+.content {
+  padding: 0 16px 16px;
+  height: 100%;
+  overflow: hidden auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  font-size: 18px;
+  text-align: center;
+  margin-top: -12px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 16px 0;
+}
