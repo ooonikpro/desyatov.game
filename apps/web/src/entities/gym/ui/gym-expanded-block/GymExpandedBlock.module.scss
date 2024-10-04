@@ -36,7 +36,7 @@
 
 .headerWrap {
   display: grid;
-  grid-template-columns: 1fr 40px;
+  grid-template-columns: 1fr minmax(max-content, 40px);
   gap: 8px;
 }
 
