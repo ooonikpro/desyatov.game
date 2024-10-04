@@ -3,7 +3,7 @@ import app from "@app";
 const logger = (message: string, type?: "warn" | "error" | "info") => {
   switch (type) {
     case "warn":
-      app.log.warn(message);
+      console.warn(message);
       break;
     case "error":
       app.log.error(message);
@@ -12,7 +12,7 @@ const logger = (message: string, type?: "warn" | "error" | "info") => {
       console.info(message);
       break;
     default:
-      app.log.log(message);
+      console.log(message);
   }
 };
 

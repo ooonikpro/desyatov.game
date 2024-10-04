@@ -1,8 +1,8 @@
 import { BootstrapPayloadType } from "@types";
 import logger from "./logger";
-import { serverConfig } from "@configs";
 
 const bootstrap = async ({
+  config,
   server,
   plugins,
   modules,
@@ -11,10 +11,10 @@ const bootstrap = async ({
     plugins.forEach((plug) => plug(server));
     modules.forEach((module) => module(server));
 
-    await server.listen(serverConfig);
+    await server.listen(config);
 
     logger(
-      `Server is running on http://${serverConfig.host}:${serverConfig.port}`,
+      `Server is running on http://${config.host}:${config.port}`,
       "info",
     );
   } catch (err) {
