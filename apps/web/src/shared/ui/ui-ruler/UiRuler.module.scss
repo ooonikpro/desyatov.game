@@ -1,0 +1,92 @@
+.ruler {
+  padding-top: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 50px;
+
+  overflow-x: hidden;
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    width: 10%;
+    height: 20px;
+    
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to left, transparent, #fff 50%);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to right, transparent, #fff 50%);
+  }
+}
+
+.pickedValue {
+  margin: 0 auto;
+  width: 15rem;
+  display: block;
+  color: #000;
+}
+
+.input {
+  all: unset;
+  width: 10rem;
+  font-size: 4rem;
+
+  &.inputError {
+    outline: 1px solid red;
+  }
+}
+
+.measurement {
+  font-size: 2rem;
+}
+
+.roulette {
+  max-width: 1200px;
+  width: 100%;
+  min-width: 280px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: end;
+  gap: 10px;
+
+  overflow: hidden;
+}
+
+.rouletteItem {
+  $max-height: 20px;
+  $width: 3px;
+  flex: 0 0 $width;
+  width: $width;
+
+  &.int {
+    height: $max-height;
+    background-color: gray;
+  }
+
+  &.float {
+    height: $max-height / 2;
+    background-color: lightgray;
+  }
+}
+
+.cursor {
+  height: 40px;
+  width: 3px;
+
+  background-color: blue;
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
