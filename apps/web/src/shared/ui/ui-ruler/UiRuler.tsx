@@ -5,18 +5,20 @@ import {
   useMemo,
   useRef,
   useState,
-  WheelEvent,
+  type WheelEvent,
 } from "react";
 import { RouletteItemType, UiRulerPropsType } from "./types";
 import s from "./UiRuler.module.scss";
 import { useRoulette } from "./useRoulette";
 
-const MAX_WEIGHT_K = 10;
+const MAX_WEIGHT_K = 5;
 
 const getRoulette = (value: number) => {
   const roulette: RouletteItemType[] = [];
   const start = value < MAX_WEIGHT_K ? 0 : +(value - MAX_WEIGHT_K).toFixed(1);
-  const end = +(value + MAX_WEIGHT_K).toFixed(0);
+  const end = start
+    ? +(value + MAX_WEIGHT_K).toFixed(0)
+    : +(value + MAX_WEIGHT_K).toFixed(0) + 5;
   for (let i = start; i <= end; i++) {
     let count = 0;
     while (count < 10) {
@@ -37,23 +39,28 @@ const getNewValueOnWheel = (delta: number, value: number) => {
   else return 0;
 };
 
-const UiRuler = ({ onChange, value, measurement }: UiRulerPropsType) => {
-  const [roulette, setRoulette] = useState(getRoulette(value));
+const UiRuler = ({
+  onChange,
+  value,
+  measurement,
+  gap = 10,
+}: UiRulerPropsType) => {
+  const intValue = useMemo(() => Math.floor(value), [value]);
+  const roulette = useMemo(() => getRoulette(intValue), [intValue]);
   const [inputError, setInputError] = useState<boolean>(false);
 
   const rouletteRef = useRef<HTMLDivElement | null>(null);
-  const { gap, initialTranslate } = useRoulette(rouletteRef);
+  const { translateValue, initialTranslate } = useRoulette({
+    rouletteRef,
+    gap,
+    roulette,
+    value,
+  });
 
   const [viewValue, setViewValue] = useState<string>(`${value}`);
-  const translateValue = useMemo<number>(
-    () => (value * 10 - roulette[0].value * 10) * (gap + 3),
-    [value, roulette, gap],
-  );
 
-  console.log(rouletteRef.current?.children.length);
   useEffect(() => {
     setViewValue(`${value}`);
-    setRoulette(getRoulette(value));
   }, [value]);
 
   function onWheel(e: WheelEvent<HTMLDivElement>) {
@@ -77,7 +84,7 @@ const UiRuler = ({ onChange, value, measurement }: UiRulerPropsType) => {
         <input
           className={cn(s.input, { [s.inputError]: inputError })}
           type="text"
-          onChange={setNewValueFromInput}
+          onInput={setNewValueFromInput}
           value={viewValue}
         />
         <span className={s.measurement}>{measurement}</span>
@@ -85,7 +92,12 @@ const UiRuler = ({ onChange, value, measurement }: UiRulerPropsType) => {
 
       <div className={s.cursor} />
 
-      <div ref={rouletteRef} onWheel={onWheel} className={s.roulette}>
+      <div
+        ref={rouletteRef}
+        onWheel={onWheel}
+        className={s.roulette}
+        style={{ gap }}
+      >
         {roulette.map((el) => (
           <div
             style={{

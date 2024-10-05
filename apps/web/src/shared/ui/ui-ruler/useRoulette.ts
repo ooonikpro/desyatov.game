@@ -1,27 +1,41 @@
-import { type MutableRefObject, useMemo } from "react";
+import { type MutableRefObject, useEffect, useState } from "react";
+import { RouletteItemType } from "./types";
 
-const getElementsWidth = (children: HTMLCollection) =>
-  [...children].reduce((prev, curr) => prev + curr.clientWidth, 0);
+type RouletteRef = MutableRefObject<HTMLElement | null>;
 
-export const useRoulette = (
-  rouletteRef: MutableRefObject<HTMLElement | null>,
-) => {
-  const initialTranslate = useMemo(
-    () => (rouletteRef.current?.clientWidth || 0) / 2 - 1,
-    [rouletteRef.current],
+interface IUseRouletteArgs {
+  rouletteRef: RouletteRef;
+  gap: number;
+  roulette: RouletteItemType[];
+  value: number;
+}
+
+const getTranslateValue = ({
+  value,
+  roulette,
+  gap,
+}: Omit<IUseRouletteArgs, "rouletteRef">) =>
+  (value * 10 - roulette[0].value * 10) * (gap + 3);
+
+export const useRoulette = ({
+  rouletteRef,
+  gap,
+  roulette,
+  value,
+}: IUseRouletteArgs) => {
+  const [translateValue, setTranslateValue] = useState(
+    getTranslateValue({ value, roulette, gap }),
   );
 
-  const gap = useMemo(() => {
-    const element = rouletteRef.current;
-    if (!element) return 0;
-    else {
-      const children = element.children;
-      return (
-        (element.scrollWidth - getElementsWidth(children) - initialTranslate) /
-        (children.length - 1)
-      );
-    }
-  }, [rouletteRef.current]);
-  
-  return { gap, initialTranslate };
+  const [initialTranslate, setInitialTranslate] = useState<number>(0);
+
+  useEffect(() => {
+    setTranslateValue(getTranslateValue({ value, roulette, gap }));
+  }, [value, roulette, gap]);
+
+  useEffect(() => {
+    setInitialTranslate((rouletteRef.current?.clientWidth ?? 0) / 2 - 1);
+  }, []);
+
+  return { translateValue, initialTranslate };
 };
