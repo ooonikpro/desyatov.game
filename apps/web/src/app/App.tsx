@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
+import AppUserProvider from "@app/providers/user-provider";
 import InterviewIsShowProvider from "@entities/interview/ui/interview-is-show-provider";
 import ShowIntroOrMain from "@features/intro/show-intro-or-main";
 import CalendarPage from "@pages/calendar";
@@ -15,53 +16,40 @@ import BottomNavigationWidget from "@widgets/bottom-navigation-widget";
 import AppRouteName from "./AppRouteName";
 
 const App = () => {
-  useEffect(() => {
-    const checkBackend = async () => {
-      try {
-        const response = await fetch("http://localhost:3000");
-
-        if (response.ok) {
-          console.log(`Backend is up and running status ${response.status}`);
-        } else {
-          console.error("Backend is not responding with status 200");
-        }
-      } catch (error) {
-        console.error("Error connecting to backend:", error);
-      }
-    };
-
-    checkBackend();
-  }, []);
-
   return (
     <React.StrictMode>
-      <ShowIntroOrMain
-        intro={(onTransitionEnd) => (
-          <IntroPage
-            interviewPage={
-              <InterviewIsShowProvider>
-                <InterviewPage onTransitionEnd={onTransitionEnd} />
-              </InterviewIsShowProvider>
-            }
-          />
-        )}
-      >
-        <UiLayout bottomNavigation={<BottomNavigationWidget />}>
-          <AppRouteName name={RoutesNamesEnum.home} component={<HomePage />} />
-          <AppRouteName
-            name={RoutesNamesEnum.calendar}
-            component={<CalendarPage />}
-          />
-          <AppRouteName
-            name={RoutesNamesEnum.statistics}
-            component={<StatisticsPage />}
-          />
-          <AppRouteName
-            name={RoutesNamesEnum.profile}
-            component={<ProfilePage />}
-          />
-        </UiLayout>
-      </ShowIntroOrMain>
+      <AppUserProvider>
+        <ShowIntroOrMain
+          intro={(onTransitionEnd) => (
+            <IntroPage
+              interviewPage={
+                <InterviewIsShowProvider>
+                  <InterviewPage onTransitionEnd={onTransitionEnd} />
+                </InterviewIsShowProvider>
+              }
+            />
+          )}
+        >
+          <UiLayout bottomNavigation={<BottomNavigationWidget />}>
+            <AppRouteName
+              name={RoutesNamesEnum.home}
+              component={<HomePage />}
+            />
+            <AppRouteName
+              name={RoutesNamesEnum.calendar}
+              component={<CalendarPage />}
+            />
+            <AppRouteName
+              name={RoutesNamesEnum.statistics}
+              component={<StatisticsPage />}
+            />
+            <AppRouteName
+              name={RoutesNamesEnum.profile}
+              component={<ProfilePage />}
+            />
+          </UiLayout>
+        </ShowIntroOrMain>
+      </AppUserProvider>
     </React.StrictMode>
   );
 };

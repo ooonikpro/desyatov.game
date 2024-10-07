@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
       outDir: path.resolve(__dirname, "../../dist"),
     },
     plugins: [react()],
+    appType: "spa",
     resolve: {
       alias: {
         "@app": path.resolve(__dirname, "./src/app"),
@@ -41,6 +42,16 @@ export default defineConfig(({ mode }) => {
       modules: {
         localsConvention: "camelCase",
         generateScopedName,
+      },
+    },
+    server: {
+      open: true,
+      proxy: {
+        "/api": {
+          target: "http://localhost:3000",
+          changeOrigin: true,
+          rewrite: (url: string) => url.replace(/^\/api/, ""),
+        },
       },
     },
   };
