@@ -4,19 +4,14 @@ import { defineConfig } from "vite";
 
 import react from "@vitejs/plugin-react-swc";
 
-type ViteConfig = {
-  mode: string;
-  command: string;
-};
-
 const APP_BASE_URL = process.env.APP_BASE_URL ?? "";
 
 // https://vitejs.dev/config/
-export default (args: ViteConfig) => {
+export default defineConfig(({ mode }) => {
   const generateScopedName =
-    args.mode === "production" ? "[hash:base64:6]" : "[local]__[hash:base64:3]";
+    mode === "production" ? "[hash:base64:6]" : "[local]__[hash:base64:3]";
 
-  return defineConfig({
+  return {
     base: APP_BASE_URL,
     build: {
       outDir: path.resolve(__dirname, "../../dist"),
@@ -33,10 +28,10 @@ export default (args: ViteConfig) => {
       },
     },
     css: {
-      devSourcemap: true,
       postcss: {
-        plugins: [autoprefixer],
+        plugins: [autoprefixer()],
       },
+      devSourcemap: true,
       preprocessorOptions: {
         scss: {
           api: "modern-compiler",
@@ -48,5 +43,5 @@ export default (args: ViteConfig) => {
         generateScopedName,
       },
     },
-  });
-};
+  };
+});
