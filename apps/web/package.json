@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
+    "preview": "vite preview",
     "check:ts": "tsc -b",
     "check:lint": "eslint . --fix",
-    "check:style": "stylelint --config-basedir './stylelintrc.js' '**/*.scss'",
+    "check:style": "npx stylelint \"./src/**/*.{css,scss}\"",
+    "check:style:fix": "npx stylelint \"./src/**/*.{css,scss}\" --fix",
     "check": "npm run check:ts && npm run check:lint && npm run check:style"
   },
   "dependencies": {
@@ -30,6 +32,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.11.1",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react": "^7.37.1",
