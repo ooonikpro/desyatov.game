@@ -1,4 +1,4 @@
-import getStyleProperty from "@shared/lib/getStylePropery";
+import getStyleProperty from "@shared/lib/getStyleProperty";
 import cn from "classnames";
 import { useMemo, useRef, type WheelEvent } from "react";
 import { generateRoulette, getTranslateValue, getValueOnWheel } from "./helpers/";
