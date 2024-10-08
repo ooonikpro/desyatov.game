@@ -1,7 +1,7 @@
-INSERT INTO users (telegram_user_id, fatsecret_user_id, password) VALUES
-  (123456789, 987654321, 'password1'),
-  (223456789, 887654321, 'password2'),
-  (323456789, 787654321, 'password3');
+INSERT INTO users (telegram_user_id, fatsecret_user_id) VALUES
+  (123456789, 987654321),
+  (223456789, 887654321),
+  (323456789, 787654321);
 
 INSERT INTO videos (title, description, cover, video_url, duration) VALUES
   ('Video 1', 'Description 1', 'cover1.jpg', 'http://video1.url', 120),

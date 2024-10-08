@@ -1,8 +1,7 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     telegram_user_id BIGINT NOT NULL,
-    fatsecret_user_id BIGINT NOT NULL,
-    password VARCHAR(255) NOT NULL
+    fatsecret_user_id BIGINT
 );
 
 CREATE TABLE videos (
