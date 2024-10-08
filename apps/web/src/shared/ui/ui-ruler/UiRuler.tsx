@@ -10,6 +10,7 @@ import {
 import { RouletteItemType, UiRulerPropsType } from "./types";
 import s from "./UiRuler.module.scss";
 import { useRoulette } from "./useRoulette";
+import isNumber from "@shared/lib/isNumber";
 
 const MAX_WEIGHT_K = 5;
 
@@ -32,7 +33,6 @@ const getRoulette = (value: number) => {
   return roulette;
 };
 
-const validValue = (value: string) => !Number.isNaN(+value);
 const getNewValueOnWheel = (delta: number, value: number) => {
   if (delta < 0) return (value * 10 + 1) / 10;
   else if (value > 0 && delta > 0) return (value * 10 - 1) / 10;
@@ -71,7 +71,7 @@ const UiRuler = ({
   function setNewValueFromInput(e: ChangeEvent<HTMLInputElement>) {
     const newValue = e.target.value;
     if (!newValue) onChange(0);
-    else if (validValue(newValue)) {
+    else if (isNumber(newValue)) {
       onChange(parseFloat(newValue));
       setInputError(false);
     } else setInputError(true);
