@@ -50,12 +50,14 @@
 }
 
 .roulette {
+  --gap: 10px;
   max-width: 1200px;
   width: 100%;
   min-width: 280px;
 
   display: flex;
   flex-flow: row nowrap;
+  gap: var(--gap);
   align-items: end;
 
   overflow: hidden;

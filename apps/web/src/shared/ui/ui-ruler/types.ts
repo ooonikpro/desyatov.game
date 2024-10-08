@@ -2,8 +2,9 @@ export type UiRulerPropsType = {
   onChange: (newValue: number) => void;
   value: number;
   measurement: string;
-  gap?: number;
 };
+
+export type RulerRoulettePropsType = Omit<UiRulerPropsType, 'measurement'>;
 
 export type RouletteItemType = {
   value: number;
