@@ -14,8 +14,8 @@
     "check": "npm run check:ts && npm run check:lint && npm run check:style"
   },
   "dependencies": {
-    "@packages/eslint-config": "*",
     "@types/telegram-web-app": "^7.8.0",
+    "axios": "^1.7.7",
     "classnames": "^2.5.1",
     "immer": "^10.1.1",
     "localforage": "^1.10.0",
@@ -27,6 +27,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@packages/eslint-config": "*",
     "@types/lodash": "^4.17.9",
     "@types/node": "^22.1.0",
     "@types/react": "^18.3.3",

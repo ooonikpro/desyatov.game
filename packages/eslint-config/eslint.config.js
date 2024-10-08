@@ -1,3 +1,6 @@
+// костыль
+global.structuredClone = (v) => JSON.parse(JSON.stringify(v));
+
 import pluginPrettier from "eslint-config-prettier";
 import pluginImport from "eslint-plugin-import";
 import pluginImportSort from "eslint-plugin-simple-import-sort";
