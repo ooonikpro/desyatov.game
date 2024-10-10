@@ -18,6 +18,6 @@
       "@types": ["./src/types/index.ts"]
     }
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "**/*.d.ts"],
   "exclude": ["node_modules"]
 }
