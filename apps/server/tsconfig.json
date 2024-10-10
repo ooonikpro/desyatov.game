@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "composite": true,
     "skipLibCheck": true,
-    "target": "es2017",
+    "target": "es6",
     "module": "ESNext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -16,7 +17,8 @@
       "@plugins/*": ["./src/plugins/*"],
       "@configs": ["./src/configs/index.ts"],
       "@types": ["./src/types/index.ts"]
-    }
+    },
+    "typeRoots": ["node_modules/@types", "./src/types"],
   },
   "include": ["**/*.ts", "**/*.d.ts"],
   "exclude": ["node_modules"]
