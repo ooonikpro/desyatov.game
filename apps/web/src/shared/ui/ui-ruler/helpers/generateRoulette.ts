@@ -1,6 +1,6 @@
 import { RouletteItemType } from "../types";
 
-const MAX_SHIFT = 5;
+const MAX_SHIFT = 2;
 
 const addNumbersAfterComma = (int: number, roulette: RouletteItemType[]) => {
   let numberAfterComma = 0;
@@ -18,7 +18,7 @@ const generateRoulette = (value: number) => {
   const start = value < MAX_SHIFT ? 0 : +(value - MAX_SHIFT).toFixed(1);
   const end = start
     ? +(value + MAX_SHIFT).toFixed(0)
-    : +(value + MAX_SHIFT).toFixed(0) + 5;
+    : +(value + MAX_SHIFT).toFixed(0) + MAX_SHIFT;
   for (let i = start; i <= end; i++) addNumbersAfterComma(i, roulette);
   return roulette;
 };

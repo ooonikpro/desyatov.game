@@ -24,7 +24,7 @@ const UiRuler = ({ onChange, value, measurement }: UiRulerPropsType) => {
 
       <div className={s.cursor} />
 
-      <RulerRoulette value={value} onChange={onChange} />
+      <RulerRoulette {...{ value, onChange }} />
     </div>
   );
 };
