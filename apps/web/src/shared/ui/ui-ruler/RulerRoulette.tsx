@@ -8,7 +8,7 @@ import s from "./UiRuler.module.scss";
 const RulerRoulette = ({ value, onChange }: RulerRoulettePropsType) => {
   const roulette = useMemo(
     () => generateRoulette(Math.floor(value)),
-    [Math.floor(value) !== value],
+    [Math.floor(value)],
   );
 
   const rouletteRef = useRef<HTMLDivElement | null>(null);
@@ -37,7 +37,7 @@ const RulerRoulette = ({ value, onChange }: RulerRoulettePropsType) => {
   const [translateValue, setTranslateValue] = useState(0);
 
   useEffect(() => {
-    const initialTranslate = (rouletteRef.current?.clientWidth ?? 0) / 2 - 1;
+    const initialTranslate = (rouletteRef.current?.clientWidth ?? 0) / 2 - 2;
     const translateValue =
       getTranslateValue({ value, roulette, gap }) * -1 + initialTranslate;
     setTranslateValue(translateValue);
