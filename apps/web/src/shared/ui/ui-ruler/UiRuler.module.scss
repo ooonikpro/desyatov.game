@@ -60,7 +60,7 @@
   gap: var(--gap);
   align-items: end;
 
-  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .rouletteItem {
