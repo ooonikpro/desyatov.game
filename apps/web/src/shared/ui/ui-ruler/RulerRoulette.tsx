@@ -1,11 +1,20 @@
 import getStyleProperty from "@shared/lib/getStyleProperty";
 import cn from "classnames";
 import { TouchEventHandler, useEffect, useMemo, useRef, useState } from "react";
-import { generateRoulette, getTranslateValue } from "./helpers/";
+import {
+  calcInitialTranslate,
+  generateRoulette,
+  getTranslateValue,
+  transformValue,
+} from "./helpers/";
 import { RulerRoulettePropsType } from "./types";
 import s from "./UiRuler.module.scss";
 
-const RulerRoulette = ({ value, onChange }: RulerRoulettePropsType) => {
+const RulerRoulette = ({
+  value,
+  onChange,
+  direction,
+}: RulerRoulettePropsType) => {
   const roulette = useMemo(
     () => generateRoulette(Math.floor(value)),
     [Math.floor(value)],
@@ -17,7 +26,8 @@ const RulerRoulette = ({ value, onChange }: RulerRoulettePropsType) => {
 
   const lastTouch = useRef<number | null>(null);
   const onTouchMove: TouchEventHandler = (e) => {
-    const newTouch = e.changedTouches[0].screenX;
+    const dirKey = direction === "horizontal" ? "screenX" : "screenY";
+    const newTouch = e.changedTouches[0][dirKey];
     if (lastTouch.current === null) {
       lastTouch.current = newTouch;
       return;
@@ -37,7 +47,10 @@ const RulerRoulette = ({ value, onChange }: RulerRoulettePropsType) => {
   const [translateValue, setTranslateValue] = useState(0);
 
   useEffect(() => {
-    const initialTranslate = (rouletteRef.current?.clientWidth ?? 0) / 2 - 2;
+    const initialTranslate = calcInitialTranslate(
+      rouletteRef.current,
+      direction!,
+    );
     const translateValue =
       getTranslateValue({ value, roulette, gap }) * -1 + initialTranslate;
     setTranslateValue(translateValue);
@@ -45,7 +58,10 @@ const RulerRoulette = ({ value, onChange }: RulerRoulettePropsType) => {
 
   useEffect(() => {
     gap = getStyleProperty(rouletteRef.current, "--gap");
-    const initialTranslate = (rouletteRef.current?.clientWidth ?? 0) / 2 - 1;
+    const initialTranslate = calcInitialTranslate(
+      rouletteRef.current,
+      direction!,
+    );
     const translateValue =
       getTranslateValue({ value, roulette, gap }) * -1 + initialTranslate;
     setTranslateValue(translateValue);
@@ -57,17 +73,14 @@ const RulerRoulette = ({ value, onChange }: RulerRoulettePropsType) => {
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
       onTouchCancel={onTouchEnd}
-      className={s.roulette}
+      className={cn(s.roulette, s[direction!])}
     >
       {roulette.map((el) => (
         <div
           style={{
-            transform: `translateX(calc(${translateValue} * 1px))`,
+            transform: transformValue(direction!, translateValue),
           }}
-          className={cn(s.rouletteItem, {
-            [s.int]: el.type === "int",
-            [s.float]: el.type === "float",
-          })}
+          className={cn(s.rouletteItem, s[el.type])}
           key={el.value}
         />
       ))}

@@ -1,11 +1,20 @@
 import isNumber from "@shared/lib/isNumber";
-import { ChangeEvent, useState } from "react";
-import { convertValueFromInput, removeZeroAtBegin } from "./helpers/transformInputValue";
+import cn from "classnames";
+import { ChangeEvent, useEffect, useState } from "react";
+import {
+  convertValueFromInput,
+  removeZeroAtBegin
+} from "./helpers/transformInputValue";
 import RulerRoulette from "./RulerRoulette";
 import { UiRulerPropsType } from "./types";
 import s from "./UiRuler.module.scss";
 
-const UiRuler = ({ onChange, value, measurement }: UiRulerPropsType) => {
+const UiRuler = ({
+  onChange,
+  value,
+  measurement,
+  direction = "vertical",
+}: UiRulerPropsType) => {
   const [viewValue, setViewValue] = useState(`${value}`);
   const setNewValueFromInput = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value.trim();
@@ -16,8 +25,12 @@ const UiRuler = ({ onChange, value, measurement }: UiRulerPropsType) => {
     }
   };
 
+  useEffect(() => {
+    setViewValue(`${value}`);
+  }, [value]);
+
   return (
-    <div className={s.ruler}>
+    <div className={cn(s.ruler, s[direction])}>
       <label className={s.pickedValue}>
         <input
           className={s.input}
@@ -30,7 +43,7 @@ const UiRuler = ({ onChange, value, measurement }: UiRulerPropsType) => {
 
       <div className={s.cursor} />
 
-      <RulerRoulette {...{ value, onChange }} />
+      <RulerRoulette {...{ value, onChange, direction }} />
     </div>
   );
 };

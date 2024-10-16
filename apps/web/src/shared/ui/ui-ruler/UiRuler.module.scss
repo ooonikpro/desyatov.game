@@ -1,17 +1,19 @@
+$max-height: 20px;
+$width: 3px;
+
 .ruler {
   padding-top: 10px;
   display: flex;
-  flex-flow: column nowrap;
   gap: 50px;
 
-  overflow-x: hidden;
-  position: relative;
+  overflow: hidden;
 
-  &::before, &::after {
-    content: '';
+  &::before,
+  &::after {
+    content: "";
     width: 10%;
     height: 20px;
-    
+
     position: absolute;
     bottom: 0;
     z-index: 3;
@@ -26,6 +28,56 @@
     right: 0;
     background: linear-gradient(to right, transparent, #fff 50%);
   }
+
+  &.horizontal {
+    flex-flow: column nowrap;
+
+    .cursor {
+      width: $width;
+      height: calc($max-height * 2);
+
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.vertical {
+    flex-flow: row nowrap;
+    max-height: 500px;
+    height: 100%;
+    align-items: center;
+
+    .cursor {
+      width: calc($max-height * 2);
+      height: $width;
+
+      bottom: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    &::before,
+    &::after {
+      width: 20px;
+      height: 10%;
+      bottom: unset;
+      right: 0;
+      left: unset;
+
+      transform: translateY(0);
+    }
+
+    &::before {
+      top: 0;
+      background: linear-gradient(to top, transparent, red 50%);
+    }
+
+    &::after {
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent, red 50%);
+    }
+  }
 }
 
 .pickedValue {
@@ -39,10 +91,6 @@
   all: unset;
   width: 10rem;
   font-size: 4rem;
-
-  &.inputError {
-    outline: 1px solid red;
-  }
 }
 
 .measurement {
@@ -61,11 +109,41 @@
   align-items: end;
 
   overflow-x: hidden;
+
+  &.horizontal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-flow: row nowrap;
+  }
+
+  &.vertical {
+    max-width: 100%;
+    width: 100%;
+    min-width: auto;
+    max-height: 500px;
+    height: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-flow: column nowrap;
+
+    & .rouletteItem {
+      width: $max-height;
+      flex: 0 0 $width;
+      height: $width;
+
+      &.int {
+        width: $max-height;
+      }
+
+      &.float {
+        width: calc($max-height / 2);
+      }
+    }
+  }
 }
 
 .rouletteItem {
-  $max-height: 20px;
-  $width: 3px;
   flex: 0 0 $width;
   width: $width;
 
@@ -81,13 +159,7 @@
 }
 
 .cursor {
-  height: 40px;
-  width: 3px;
-
   background-color: blue;
   position: absolute;
   z-index: 3;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
 }
