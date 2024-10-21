@@ -79,6 +79,7 @@ const RulerRoulette = ({
     >
       {roulette.map((el) => (
         <div
+          data-value={el.value}
           style={{
             transform: transformValue(direction!, translateValue),
           }}

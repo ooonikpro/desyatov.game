@@ -120,7 +120,6 @@ $cursor-height: $max-height + 20px;
 
   &.horizontal {
     overflow-x: hidden;
-    overflow-y: auto;
     flex-flow: row nowrap;
   }
 
@@ -133,7 +132,6 @@ $cursor-height: $max-height + 20px;
     flex: 0 0 min-content;
 
     overflow-x: auto;
-    overflow-y: hidden;
     flex-flow: column nowrap;
 
     & .rouletteItem {
@@ -147,8 +145,14 @@ $cursor-height: $max-height + 20px;
       }
 
       &:nth-child(10n + 1) {
-        width: $max-height / 2;
+        width: $max-height;
         height: $width;
+
+        &::before {
+          top: 50%;
+          left: 0;
+          transform: translateX(0) translateY(-50%);
+        }
       }
     }
   }
@@ -167,7 +171,23 @@ $cursor-height: $max-height + 20px;
 
   &:nth-child(10n + 1) {
     height: $max-height;
+    position: relative;
     background-color: $white;
+
+    &::before {
+      content: attr(data-value);
+      display: block;
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 3;
+      transform: translateX(-50%);
+
+      font-size: 1.3rem;
+      color: $white;
+      background-color: $black-bg;
+    }
   }
 }
 
