@@ -82,7 +82,7 @@ const RulerRoulette = ({
           style={{
             transform: transformValue(direction!, translateValue),
           }}
-          className={cn(s.rouletteItem, s[el.type])}
+          className={cn(s.rouletteItem)}
           key={el.value}
         />
       ))}
