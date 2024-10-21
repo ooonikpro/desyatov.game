@@ -1,32 +1,37 @@
-$max-height: 20px;
+$max-height: 50px;
 $width: 3px;
+$cursor-height: $max-height + 20px;
 
 .ruler {
   padding-top: 10px;
   display: flex;
   gap: 50px;
+  background-color: $black-bg;
 
+  position: relative;
   overflow: hidden;
 
   &::before,
   &::after {
     content: "";
-    width: 10%;
-    height: 20px;
+    width: 50%;
+    height: $cursor-height;
 
     position: absolute;
     bottom: 0;
     z-index: 3;
+
+    pointer-events: none;
   }
 
   &::before {
     left: 0;
-    background: linear-gradient(to left, transparent, #fff 50%);
+    background: linear-gradient(90deg, $black-bg, $gray 100%);
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(to right, transparent, #fff 50%);
+    background: linear-gradient(90deg, $gray, $black-bg 100%);
   }
 
   &.horizontal {
@@ -34,7 +39,7 @@ $width: 3px;
 
     .cursor {
       width: $width;
-      height: calc($max-height * 2);
+      height: $cursor-height;
 
       bottom: 0;
       left: 50%;
@@ -49,7 +54,7 @@ $width: 3px;
     align-items: center;
 
     .cursor {
-      width: calc($max-height * 2);
+      width: $cursor-height;
       height: $width;
 
       bottom: 50%;
@@ -59,8 +64,8 @@ $width: 3px;
 
     &::before,
     &::after {
-      width: 20px;
-      height: 10%;
+      width: $cursor-height;
+      height: 50%;
       bottom: unset;
       right: 0;
       left: unset;
@@ -70,12 +75,12 @@ $width: 3px;
 
     &::before {
       top: 0;
-      background: linear-gradient(to top, transparent, red 50%);
+      background: linear-gradient(180deg, $black-bg, $gray 100%);
     }
 
     &::after {
       bottom: 0;
-      background: linear-gradient(to bottom, transparent, red 50%);
+      background: linear-gradient(180deg, $gray, $black-bg 100%);
     }
   }
 }
@@ -83,14 +88,16 @@ $width: 3px;
 .pickedValue {
   margin: 0 auto;
   width: 15rem;
+  flex: 0 0 15rem;
   display: block;
-  color: #000;
+  color: $white;
 }
 
 .input {
   all: unset;
   width: 10rem;
   font-size: 4rem;
+  color: $white;
 }
 
 .measurement {
@@ -99,6 +106,7 @@ $width: 3px;
 
 .roulette {
   --gap: 10px;
+  --item-width: 3px;
   max-width: 1200px;
   width: 100%;
   min-width: 280px;
@@ -122,44 +130,49 @@ $width: 3px;
     min-width: auto;
     max-height: 500px;
     height: 100%;
+    flex: 0 0 min-content;
 
     overflow-x: auto;
     overflow-y: hidden;
     flex-flow: column nowrap;
 
     & .rouletteItem {
-      width: $max-height;
-      flex: 0 0 $width;
-      height: $width;
+      width: $max-height / 2;
+      flex: 0 0 var(--item-width);
+      height: var(--item-width);
 
-      &.int {
-        width: $max-height;
+      &:nth-child(5n + 1) {
+        width: $max-height / 2 + 10px;
+        height: $width;
       }
 
-      &.float {
-        width: calc($max-height / 2);
+      &:nth-child(10n + 1) {
+        width: $max-height / 2;
+        height: $width;
       }
     }
   }
 }
 
 .rouletteItem {
-  flex: 0 0 $width;
-  width: $width;
+  flex: 0 0 var(--item-width);
+  width: var(--item-width);
+  height: $max-height / 2;
+  background-color: #cbcbcb;
 
-  &.int {
-    height: $max-height;
-    background-color: gray;
+  &:nth-child(5n + 1) {
+    height: $max-height / 2 + 10px;
+    background-color: rgba($color: $white, $alpha: 0.5);
   }
 
-  &.float {
-    height: $max-height / 2;
-    background-color: lightgray;
+  &:nth-child(10n + 1) {
+    height: $max-height;
+    background-color: $white;
   }
 }
 
 .cursor {
-  background-color: blue;
+  background-color: $orange;
   position: absolute;
   z-index: 3;
 }
