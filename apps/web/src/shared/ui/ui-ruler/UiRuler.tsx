@@ -13,7 +13,7 @@ const UiRuler = ({
   onChange,
   value,
   measurement,
-  direction = "vertical",
+  direction = "horizontal",
 }: UiRulerPropsType) => {
   const [viewValue, setViewValue] = useState(`${value}`);
   const setNewValueFromInput = (e: ChangeEvent<HTMLInputElement>) => {
