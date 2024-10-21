@@ -2,12 +2,13 @@ import { DirectionType, RouletteItemType } from "../types";
 
 interface IGetTranslateValue {
   gap: number;
+  itemWidth: number;
   roulette: RouletteItemType[];
   value: number;
 }
 
-export const getTranslateValue = ({ value, roulette, gap }: IGetTranslateValue) =>
-  (value * 10 - roulette[0].value * 10) * (gap + 3);
+export const getTranslateValue = ({ value, roulette, gap, itemWidth }: IGetTranslateValue) =>
+  (value * 10 - roulette[0].value * 10) * (gap + itemWidth);
 
 export const transformValue = (direction: DirectionType, translateValue: number) => {
   const func = direction === "horizontal" ? "translateX" : "translateY";

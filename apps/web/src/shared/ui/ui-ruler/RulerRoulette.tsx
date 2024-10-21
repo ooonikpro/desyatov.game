@@ -23,6 +23,7 @@ const RulerRoulette = ({
   const rouletteRef = useRef<HTMLDivElement | null>(null);
 
   let gap = getStyleProperty(rouletteRef.current, "--gap");
+  let itemWidth = getStyleProperty(rouletteRef.current, "--item-width");
 
   const lastTouch = useRef<number | null>(null);
   const onTouchMove: TouchEventHandler = (e) => {
@@ -37,7 +38,7 @@ const RulerRoulette = ({
 
     const newValue =
       dif < 0 ? (value * 10 + 1) / 10 : value === 0 ? 0 : (value * 10 - 1) / 10;
-    onChange(newValue);
+    onChange(+newValue.toFixed(1));
   };
 
   const onTouchEnd = () => {
@@ -52,18 +53,19 @@ const RulerRoulette = ({
       direction!,
     );
     const translateValue =
-      getTranslateValue({ value, roulette, gap }) * -1 + initialTranslate;
+      getTranslateValue({ value, roulette, gap, itemWidth }) * -1 + initialTranslate;
     setTranslateValue(translateValue);
   }, [value, roulette]);
 
   useEffect(() => {
     gap = getStyleProperty(rouletteRef.current, "--gap");
+    itemWidth = getStyleProperty(rouletteRef.current, "--item-width");
     const initialTranslate = calcInitialTranslate(
       rouletteRef.current,
       direction!,
     );
     const translateValue =
-      getTranslateValue({ value, roulette, gap }) * -1 + initialTranslate;
+      getTranslateValue({ value, roulette, gap, itemWidth }) * -1 + initialTranslate;
     setTranslateValue(translateValue);
   }, []);
 
